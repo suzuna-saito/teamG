@@ -1,8 +1,2 @@
 ﻿  main.cpp
-  PlayScene.cpp
-  ResultScene.cpp
-  SceneBase.cpp
-  TitleScene.cpp
-  コードを生成中...
-  LINK : 前回のインクリメンタル リンクで C:\Users\student\Desktop\teamG\x64\Debug\G_game.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   G_game.vcxproj -> C:\Users\student\Desktop\teamG\x64\Debug\G_game.exe
