@@ -1,1 +1,2 @@
-﻿LINK : fatal error LNK1104: ファイル 'DxDrawFunc_vs2015_x64_MDd.lib' を開くことができません。
+﻿  main.cpp
+  G_game.vcxproj -> C:\Users\student\Desktop\teamG\x64\Debug\G_game.exe

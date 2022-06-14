@@ -14,7 +14,7 @@
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	// 画面モードのセット
-	SetGraphMode(540, 1080, 16);
+	SetGraphMode(650, 1080, 16);
 	ChangeWindowMode(TRUE);
 
 	// DXライブラリの初期化
