@@ -3,7 +3,7 @@
 #include "PlayScene.h"
 
 TitleScene::TitleScene()
-	: SceneBase()
+	: SceneBase(SceneBase::Scene::eTitle)
 {
 	// ƒ^ƒCƒgƒ‹‰æ‘œ‚Ì“Ç‚İ‚İ(‰¼)
 	mImage = LoadGraph("data/assets/Title.png");

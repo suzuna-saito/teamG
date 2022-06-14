@@ -3,7 +3,7 @@
 #include "ResultScene.h"
 
 PlayScene::PlayScene()
-    : SceneBase()
+    : SceneBase(SceneBase::Scene::ePlay)
 {
     // ”wŒi‚Ì¶¬
 	mBackground = new Background();
@@ -11,6 +11,8 @@ PlayScene::PlayScene()
 
 PlayScene::~PlayScene()
 {
+	// ”wŒi‚Ìíœ
+	delete mBackground;
 }
 
 SceneBase* PlayScene::Update(float _deltaTime)

@@ -4,7 +4,7 @@
 #include "PlayScene.h"
 
 ResultScene::ResultScene()
-	: SceneBase()
+	: SceneBase(SceneBase::Scene::eResult)
 {
 	// ƒŠƒUƒ‹ƒg‰æ‘œ‚Ì“Ç‚İ‚İ(‰¼)
 	mImage = LoadGraph("data/assets/Result.png");

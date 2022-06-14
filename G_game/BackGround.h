@@ -1,4 +1,5 @@
 #pragma once
+// saito
 
 /* 背景制御 */
 class Background
@@ -22,7 +23,7 @@ public:
 
 private:
 	// 定数
-	const float mWidth;         // 初期値に戻すタイミング（画面サイズ）
+	const float MHeight;         // 画面サイズ(縦)
 
 	// 変数
 	int mBackgroundImage;       // 背景のイメージ画像

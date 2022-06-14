@@ -153,6 +153,8 @@
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="UIBase.cpp" />
+    <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGround.h" />
@@ -160,6 +162,8 @@
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SceneBase.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="UIBase.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

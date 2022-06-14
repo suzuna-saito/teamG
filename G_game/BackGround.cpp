@@ -2,7 +2,7 @@
 #include "Dxlib.h"
 
 Background::Background()
-	: mWidth(-1920.0f)
+	: MHeight(-1920.0f)
 	, mBackgroundPosY(0.0f)
 	, mMoveSpeed(-500.0f)
 {
@@ -16,7 +16,7 @@ Background::~Background()
 
 void Background::Update(float _deltaTime)
 {
-	// 背景の移動スピードをポジションに足す
+	// 背景ポジションの更新
 	mBackgroundPosY += mMoveSpeed * _deltaTime;
 }
 
@@ -24,10 +24,10 @@ void Background::Draw()
 {
 	// 背景の描画
 	DrawGraph(0, (int)mBackgroundPosY, mBackgroundImage, true);
-	DrawGraph(0, (int)mBackgroundPosY + 1920.0f, mBackgroundImage, true);
+	DrawGraph(0, (int)mBackgroundPosY - MHeight, mBackgroundImage, true);
 
 	// 一枚目の画像が画面外に行ったら初期値に戻す
-	if (mBackgroundPosY <= mWidth)
+	if (mBackgroundPosY <= MHeight)
 	{
 		mBackgroundPosY = 0.0f;
 	}

@@ -7,6 +7,7 @@
 #include "DxLib.h"
 #include "SceneBase.h"
 #include "TitleScene.h"
+#include "UIManager.h"
 
 //-----------------------------------------------------------------------------
 // @brief  メイン関数.
@@ -34,6 +35,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	//	最初の経過時間は仮に0.0000001f秒にしておく
 	deltaTime = 0.000001f;
+
+	// UI管理クラスの生成
+	UIManager::CreateInstance();
 
 	// 現在のシーンを生成
 	SceneBase* nowScene = new TitleScene();
