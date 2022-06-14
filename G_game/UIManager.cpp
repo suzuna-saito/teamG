@@ -34,27 +34,30 @@ void UIManager::DeleteInstance()
 
 void UIManager::AddUI(UIBase* _ui)
 {
-	// UIの追加
+	// UIの格納
 	mManager->mUI.emplace_back(_ui);
 }
 
 void UIManager::DeleteUI()
 {
-	// 消すUIを判別
-	std::vector<UIBase*> deleteUI;
-	for (auto UI : mManager->mUI)
+	// 全てのUIをmPendingActorsに一時的に保管
+	mManager->mPendingActors = mManager->mUI;
+
+	// UIを格納するコンテナを空にする
+	mManager->mUI.clear();
+
+	// 格納するUIを判別
+	for (auto UI : mManager->mPendingActors)
 	{
-		// このUIが生成されたシーンと現在のシーンが異なれば
-		if (UI->GetScene() != SceneBase::mIsScene)
+		// このUIが生成されたシーンと現在のシーンが一緒だったら
+		if (UI->GetDirthplaceScene() == SceneBase::mIsScene)
 		{
-			deleteUI.emplace_back(UI);
+			// このUIを格納
+			mManager->mUI.emplace_back(UI);
 		}
 	}
-	// UIを消す(mUIから削除される)
-	for (auto UI : deleteUI)
-	{
-		delete UI;
-	}
+
+	mManager->mPendingActors.clear();
 }
 
 void UIManager::UpdateUI(float _deltaTime)

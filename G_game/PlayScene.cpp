@@ -1,12 +1,14 @@
 // インクルード
 #include "PlayScene.h"
 #include "ResultScene.h"
+#include "Speedometer.h"
 
 PlayScene::PlayScene()
     : SceneBase(SceneBase::Scene::ePlay)
 {
-    // 背景の生成
-	mBackground = new Background();
+	// 生成
+	mBackground = new Background();  // 背景
+	new Speedometer();               // スピードメーター
 }
 
 PlayScene::~PlayScene()

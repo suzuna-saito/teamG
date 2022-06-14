@@ -49,12 +49,17 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		// Updateの戻り値で次のシーンのポインタが返ってくる
 		// tmpSceneに返ってきたシーンのポインタを代入
 		SceneBase* tmpScene = nowScene->Update(deltaTime);
+		// UIの更新処理
+		UIManager::UpdateUI(deltaTime);
 
 		// nowScene(現在)とtmpSceneが異なっていたら
 		if (nowScene != tmpScene)
 		{
 			// 現在のシーンを解放
 			delete nowScene;
+			// いらないUIを削除する
+			UIManager::DeleteUI();
+
 			// nowSceneにtmpSceneを代入
 			nowScene = tmpScene;
 		}
@@ -64,6 +69,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		// 現在のシーンを描画
 		nowScene->Draw();
+		// UIの描画
+		UIManager::DrawUI();
 
 		// 裏画面の内容を表画面に反映させる
 		ScreenFlip();
@@ -81,6 +88,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	// シーンの削除
 	delete nowScene;
+	// 実体を一つしか持たないクラスの解放処理
+	UIManager::DeleteInstance();
+
+
 	// DXライブラリの後始末
 	DxLib_End();
 

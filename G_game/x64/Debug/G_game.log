@@ -1,14 +1,2 @@
-﻿  BackGround.cpp
-C:\Users\student\Desktop\teamG\G_game\BackGround.cpp(27,36): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-  main.cpp
-  PlayScene.cpp
-  ResultScene.cpp
-  SceneBase.cpp
-  TitleScene.cpp
-  UIBase.cpp
-  UIManager.cpp
-C:\Users\student\Desktop\teamG\G_game\UIManager.cpp(47,11): error C2039: 'GetScene': 'UIBase' のメンバーではありません
-C:\Users\student\Desktop\teamG\G_game\UIBase.h(7): message : 'UIBase' の宣言を確認してください
-C:\Users\student\Desktop\teamG\G_game\UIManager.cpp(47,25): error C2653: 'SceneBase': 識別子がクラス名でも名前空間名でもありません。
-C:\Users\student\Desktop\teamG\G_game\UIManager.cpp(47,36): error C2065: 'mIsScene': 定義されていない識別子です。
-  コードを生成中...
+﻿  Speedometer.cpp
+  G_game.vcxproj -> C:\Users\suzun\Desktop\teamG\x64\Debug\G_game.exe

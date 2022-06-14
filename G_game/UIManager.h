@@ -44,5 +44,7 @@ private:
 
 	// すべてのUIを格納するコンテナ
 	std::vector<UIBase*>mUI;
+	// 一時的にUIを保存するコンテナ
+	std::vector<UIBase*>mPendingActors;
 };
 
