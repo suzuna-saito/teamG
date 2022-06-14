@@ -178,7 +178,6 @@ inline LONGLONG __Effekseer_FileRead_size(const char* filePath)
 #else
 inline int __Effekseer_FileRead_open(const char* filePath) { return FileRead_open(filePath, 0); }
 
-
 inline LONGLONG __Effekseer_FileRead_size(const char* FilePath) { return FileRead_size(FilePath); }
 #endif
 
