@@ -5,8 +5,8 @@
 PlayScene::PlayScene()
     : SceneBase()
 {
-    // ƒvƒŒƒC‰æ‘œ‚Ì“Ç‚Ýž‚Ý(‰¼)
-    mImage = LoadGraph("data/assets/Play.png");
+    // ”wŒi‚Ì¶¬
+	mBackground = new Background();
 }
 
 PlayScene::~PlayScene()
@@ -22,12 +22,15 @@ SceneBase* PlayScene::Update(float _deltaTime)
 		return new ResultScene();
 	}
 
+	// ”wŒi‚ÌXV
+	mBackground->Update(_deltaTime);
+
 	// ƒV[ƒ“‘JˆÚðŒ‚ð–ž‚½‚µ‚Ä‚¢‚È‚©‚Á‚½‚ç¡‚Ìƒ|ƒCƒ“ƒ^‚ð•Ô‚·
 	return this;
 }
 
 void PlayScene::Draw()
 {
-    // ƒvƒŒƒC‚Ì•`‰æ
-    DrawGraph(0, 0, mImage, true);
+    // ”wŒi‚Ì•`‰æ
+	mBackground->Draw();
 }

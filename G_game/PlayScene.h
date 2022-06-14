@@ -2,6 +2,7 @@
 
 // インクルード
 #include "SceneBase.h"
+#include "Background.h"
 
 /* プレイシーン */
 class PlayScene :public SceneBase
@@ -22,5 +23,9 @@ public:
 	/// シーンの描画
 	/// </summary>
 	void Draw()override;
+
+private:
+	// 背景クラスのポインタ
+	class Background* mBackground;
 };
 
