@@ -12,9 +12,9 @@ float Background::mMoveSpeed = -100.0f;
 
 Background::Background()
 	: MHeight(-1920.0f)
-	, MAcceleration(-5.0f)
-	, MDeceleration(-6.0f)
-	, MMaxSpeed(-1200.0f)
+	, MAcceleration(-6.0f)
+	, MDeceleration(-7.0f)
+	, MMaxSpeed(-1300.0f)
 	, MMinSpeed(-300.0f)
 	, mBackgroundPosY(0.0f)
 {
