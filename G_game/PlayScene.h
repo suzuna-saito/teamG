@@ -3,6 +3,8 @@
 // インクルード
 #include "SceneBase.h"
 #include "Background.h"
+#include "Speedometer.h"
+#include "Heart.h"
 
 /* プレイシーン */
 class PlayScene :public SceneBase

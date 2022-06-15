@@ -1,39 +1,52 @@
 #include "Speedometer.h"
 #include "BackGround.h"
 
+// 静的メンバ変数の初期化
+bool Speedometer::mArrowStopFlag = false;
+
 Speedometer::Speedometer()
 	: UIBase(SceneBase::mIsScene)
 	, MArrowMinPosX(60.0f)
 	, MArrowMaxPosX(540.0f)
-	, MSpeedControlSoon(0.15f)
-	, MSpeedControlSlow(0.186f)
+	, MSpeedControlSoon(0.2f)
+	, MSpeedControlSlow(0.2f)
+	, MEndArrowSpeed(500.0f)
 	, mMoveSpeed(0.0f)
 {
 	// 画像の読み込み
-	mImage = LoadGraph("data/assets/Meter.png");       // メーター
-	mArrowImage = LoadGraph("data/assets/Arrow.png");  // 三角画像
+	mImage = LoadGraph("data/assets/UI/Meter.png");       // メーター
+	mArrowImage = LoadGraph("data/assets/UI/Arrow.png");  // 三角画像
 
 	// ポジションの設定
 	mPos.x = 75.0f;                // メータのポジションｘ
-	mPos.y = 900.0f;               // メータのポジションｙ
-	mArrowPos.x = MArrowMinPosX;   // 三角のポジションｘ
-	mArrowPos.y = 850.0f;          // 三角のポジションy
+	mPos.y = 950.0f;               // メータのポジションｙ
+	mArrowPos.x = MArrowMaxPosX;   // 三角のポジションｘ
+	mArrowPos.y = 900.0f;          // 三角のポジションy
+
+	// フラグの初期化
+	mArrowStopFlag = false;
 }
 
 Speedometer::~Speedometer()
 {
+	DeleteGraph(mImage);
+	DeleteGraph(mArrowImage);
 }
 
 void Speedometer::Update(float _deltaTime)
 {
 	// 背景のスクロールスピードを利用して移動速度の制限
-	if (Background::mNowSpeed == Background::Speed::eAcceleration)
+	if (Background::mNowSpeedType == Background::Speed::eAcceleration)
 	{
 		mMoveSpeed = Background::mMoveSpeed * -MSpeedControlSoon;
 	}
-	else if (Background::mNowSpeed == Background::Speed::eDeceleration)
+	else if (Background::mNowSpeedType == Background::Speed::eDeceleration)
 	{
 		mMoveSpeed = Background::mMoveSpeed * MSpeedControlSlow;
+	}
+	else if (Background::mNowSpeedType == Background::Speed::eLanding)
+	{
+		mMoveSpeed = -MEndArrowSpeed;
 	}
 
 	// 三角のポジション更新
@@ -44,6 +57,11 @@ void Speedometer::Update(float _deltaTime)
 	{
 		mMoveSpeed = 0.0f;
 		mArrowPos.x = MArrowMinPosX;
+
+		if (Background::mNowSpeedType == Background::Speed::eLanding)  // 一番左まで三角が行ったとき
+		{                                                              // 着地してたら
+			mArrowStopFlag = true;
+		}
 	}
 	if (mArrowPos.x > MArrowMaxPosX)
 	{

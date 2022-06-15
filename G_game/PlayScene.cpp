@@ -1,26 +1,25 @@
 // インクルード
 #include "PlayScene.h"
 #include "ResultScene.h"
-#include "Speedometer.h"
 
 PlayScene::PlayScene()
     : SceneBase(SceneBase::Scene::ePlay)
 {
 	// 生成
-	mBackground = new Background();  // 背景
-	new Speedometer();               // スピードメーター
+	mBackground = new Background();   // 背景
+	new Speedometer();                // スピードメーター
+	new Heart();                      // 残機
 }
 
 PlayScene::~PlayScene()
 {
-	// 背景の削除
-	delete mBackground;
+	delete mBackground;  // 背景の削除
 }
 
 SceneBase* PlayScene::Update(float _deltaTime)
 {
-	// シーン遷移条件(スペースキーを押すと遷移（仮）)
-	if (CheckHitKey(KEY_INPUT_SPACE))
+	// 地面まで着地して、メーターが左まで来たら
+	if (Speedometer::mArrowStopFlag)
 	{
 		// 条件を満たしていたらリザルトシーンを生成してそのポインタを返す
 		return new ResultScene();

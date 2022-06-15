@@ -12,6 +12,7 @@ ResultScene::ResultScene()
 
 ResultScene::~ResultScene()
 {
+	DeleteGraph(mImage);
 }
 
 SceneBase* ResultScene::Update(float _deltaTime)

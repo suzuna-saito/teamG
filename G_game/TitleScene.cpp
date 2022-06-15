@@ -11,6 +11,7 @@ TitleScene::TitleScene()
 
 TitleScene::~TitleScene()
 {
+	DeleteGraph(mImage);
 }
 
 SceneBase* TitleScene::Update(float _deltaTime)

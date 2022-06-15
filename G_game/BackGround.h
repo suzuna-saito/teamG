@@ -11,6 +11,7 @@ public:
 	{
 		eAcceleration,  // 加速中
 		eDeceleration,  // 減速中
+		eLanding,       // 着地
 	};
 
 	// コンストラクタ
@@ -30,7 +31,7 @@ public:
 	void Draw();
 
 	// 静的メンバ変数
-	static Speed mNowSpeed;      // 現在のスピード状況
+	static Speed mNowSpeedType;  // 現在のスピード状況
 	static float mMoveSpeed;     // 背景の移動スピード
 
 private:
@@ -41,8 +42,14 @@ private:
 	const float MMaxSpeed;       // 最大スピード
 	const float MMinSpeed;       // 最小スピード
 
+	const int MScrollStop;       // スクロールを止めるタイミング回数
+
 	// 変数
 	int mBackgroundImage;       // 背景のイメージ画像
+	int mEndBackgroundImage;    // 一番下の背景のイメージ画像
 	float mBackgroundPosY;      // 背景ポジションY
+
+	int mScrollCount;           // スクロールを繰り返した回数カウント
+	bool mEndFlag;              // 着地地点まで背景を描画したかどうか
 };
 
