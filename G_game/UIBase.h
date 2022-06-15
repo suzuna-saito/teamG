@@ -31,7 +31,9 @@ protected:
 	// 変数
 	VECTOR mPos;         // ポジション
 	int mImage;          // UI画像
-	float mEnlargement;  // 拡大率
+	float mUIWidth;      // UIの横幅
+	float mUIHeight;     // UIの縦幅
+	float mEnlargement;  // 拡大、縮小
 
 private:
 	// 各自のUIを生成したシーン

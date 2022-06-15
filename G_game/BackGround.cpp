@@ -80,16 +80,16 @@ void Background::Update(float _deltaTime)
 void Background::Draw()
 {
 	// 背景の描画
-	DrawGraph(0, (int)mBackgroundPosY, mBackgroundImage, true);
+	DrawGraph(0, (int)mBackgroundPosY, mBackgroundImage, TRUE);
 
 	// スクロールを繰り返した回数が指定の回数まで行ってなかったら
 	if (mScrollCount != MScrollStop)
 	{
-		DrawGraph(0, (int)mBackgroundPosY - MHeight, mBackgroundImage, true);   // 空の画像を描画
+		DrawGraph(0, (int)mBackgroundPosY - MHeight, mBackgroundImage, TRUE);   // 空の画像を描画
 	}
 	// スクロールを繰り返した回数が指定の回数まで行ったら
 	else
 	{
-		DrawGraph(0, (int)mBackgroundPosY - MHeight, mEndBackgroundImage, true); // 地面の画像を描画
+		DrawGraph(0, (int)mBackgroundPosY - MHeight, mEndBackgroundImage, TRUE); // 地面の画像を描画
 	}
 }

@@ -21,4 +21,14 @@ public:
 	/// UI‚Ì•`‰æ
 	/// </summary>
 	void Draw()override;
+
+private:
+	// ’è”
+	const float MMaxHpSize;   // HP‰æ‘œ‚ÌÅ‘å‚Ì‘å‚«‚³
+	const float MMinHpSize;   // HP‰æ‘œ‚ÌÅ¬‚Ì‘å‚«‚³
+	const float MIncrease;    // Šg‘å—¦‚Ì‘‰Á”
+	// •Ï”
+	int mHP;        // HP
+
+	int test;
 };

@@ -73,6 +73,6 @@ void Speedometer::Update(float _deltaTime)
 void Speedometer::Draw()
 {
 	// 描画
-	DrawGraph((int)mPos.x, (int)mPos.y, mImage, true);                 // メーター
-	DrawGraph((int)mArrowPos.x, (int)mArrowPos.y, mArrowImage, true);  // 三角
+	DrawGraph((int)mPos.x, (int)mPos.y, mImage, TRUE);                 // メーター
+	DrawGraph((int)mArrowPos.x, (int)mArrowPos.y, mArrowImage, TRUE);  // 三角
 }

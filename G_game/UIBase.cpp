@@ -3,8 +3,11 @@
 
 UIBase::UIBase(const SceneBase::Scene& _nowScene)
 	: mDirthplaceScene(_nowScene)
-	, mImage(0)
 	, mPos()
+	, mImage(0)
+	, mUIHeight(0.0f)
+	, mUIWidth(0.0f)
+	, mEnlargement(0.0f)
 {
 	// UI‚ð’Ç‰Á‚·‚é
 	UIManager::AddUI(this);

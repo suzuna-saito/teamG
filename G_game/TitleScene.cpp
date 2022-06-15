@@ -30,5 +30,5 @@ SceneBase* TitleScene::Update(float _deltaTime)
 void TitleScene::Draw()
 {
 	// ƒ^ƒCƒgƒ‹‚Ì•`‰æ
-	DrawGraph(0, 0, mImage, true);
+	DrawGraph(0, 0, mImage, TRUE);
 }

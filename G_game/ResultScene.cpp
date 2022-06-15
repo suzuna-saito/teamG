@@ -37,5 +37,5 @@ SceneBase* ResultScene::Update(float _deltaTime)
 void ResultScene::Draw()
 {
 	// ƒŠƒUƒ‹ƒg‚Ì•`‰æ
-	DrawGraph(0, 0, mImage, true);
+	DrawGraph(0, 0, mImage, TRUE);
 }
