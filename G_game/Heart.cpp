@@ -2,8 +2,8 @@
 
 Heart::Heart()
 	: UIBase(SceneBase::mIsScene)
-	, MMaxHpSize(75.0f)
-	, MMinHpSize(70.0f)
+	, MMaxHpSize(55.0f)
+	, MMinHpSize(50.0f)
 	, MIncrease(0.2f)
 	, mHP(3)
 {
@@ -15,11 +15,11 @@ Heart::Heart()
 	mPos.y = 20.0f;
 
 	// UIのサイズ
-	mUIWidth = 70.0f;
-	mUIHeight = 70.0f;
+	mUISizeX = 50.0f;
+	mUISizeY = 50.0f;
 
 	// 拡大率
-	mEnlargement = 0.3f;
+	mEnlargement = 0.15f;
 
 	// デバック用
 	test = 0;
@@ -55,10 +55,10 @@ void Heart::Update(float _deltaTime)
 	}
 
 	// Hpの大きさを拡大、縮小
-	mUIHeight += mEnlargement;
-	mUIWidth += mEnlargement;
+	mUISizeY += mEnlargement;
+	mUISizeX += mEnlargement;
 
-	if (mUIHeight > MMaxHpSize || mUIHeight < MMinHpSize)
+	if (mUISizeY > MMaxHpSize || mUISizeY < MMinHpSize)
 	{
 		mEnlargement *= -1.0f;
 	}
@@ -72,10 +72,10 @@ void Heart::Draw()
 		for (int i = 0; i < mHP; ++i)   // HPが減ったら表示数を減らす
 		{
 			// 左上座標の計算
-			int leftPosX = (int)mPos.x + mUIWidth * i;
+			int leftPosX = (int)mPos.x + mUISizeX * i;
 
 			DrawExtendGraph(leftPosX, (int)mPos.y,                       // 左上座標
-				leftPosX + (int)mUIWidth, (int)mPos.y + (int)mUIHeight,  // 右下座標
+				leftPosX + (int)mUISizeX, (int)mPos.y + (int)mUISizeY,  // 右下座標
 				mImage, TRUE);
 		}
 	}

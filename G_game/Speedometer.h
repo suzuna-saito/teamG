@@ -7,6 +7,14 @@
 class Speedometer :public UIBase
 {
 public:
+	// 現在メーターがいる色
+	enum class MeterColor :unsigned char
+	{
+		eGreen,
+		eYellow,
+		eRed,
+	};
+
 	// コンストラクタ
 	Speedometer();
 	// デストラクタ
@@ -24,12 +32,16 @@ public:
 
 	// 静的メンバ変数
 	static bool mArrowStopFlag;    // 地面に着地した後に三角が左まで行ったかどうか
+	static MeterColor mMeterColor; // 現在のメーターの色
 private:
 	// 定数
 	const float MArrowMaxPosX;      // 三角の最大ポジション
 	const float MArrowMinPosX;      // 三角の最小ポジション
-	const float MSpeedControlSoon;  // 速度の増加を制限する
-	const float MSpeedControlSlow;  // 速度の減少を制限する
+	const float MYellowPos;         // メーターの黄色部分ポジション(右座標)
+	const float MRedPos;            // メーターの赤部分ポジション(右座標)
+
+	const float MSpeedControlSoon;  // 三角の速度の増加を制限する
+	const float MSpeedControlSlow;  // 三角の速度の減少を制限する
 	const float MEndArrowSpeed;     // 着地したときの三角の移動スピード
 
 	// 変数

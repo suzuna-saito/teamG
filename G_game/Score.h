@@ -1,6 +1,13 @@
 #pragma once
 // saito
 
+#include "DxLib.h"
+#include <math.h>
+#include "BackGround.h"
+#include "Speedometer.h"
+
+#define NUM 10  // 数字の種類の数（0～9）または 割る数
+
 /* スコアの処理 */
 class Score
 {
@@ -28,5 +35,25 @@ public:
 private:
 	// Scoreの実体（アプリ内に唯一存在）
 	static Score* mScore;
+
+	// 定数
+	const int MAllnum;        // 画像の分割総数
+	const int MNumX, MNumY;   // 画像の縦、横分割数
+	const int MSizeX, MSizeY; // 分割された画像一つの大きさ
+	const int Mdigit;         // 桁数
+	const int MSubScore;      // スコアの減点数
+
+	// 変数
+	int mImage;              // スコア文字画像
+	int mDivisionImage[NUM]; // 数字一つ分の画像を保管する場所
+
+	VECTOR mPos;        // スコア文字描画座標
+	VECTOR mNumeraPos;  // 数字 描画座標
+
+	int mNowScore;      // 現在のスコア
+
+public: // ゲッター、セッター
+	// スコアのセット
+	int SetScore(int _score) {};
 };
 

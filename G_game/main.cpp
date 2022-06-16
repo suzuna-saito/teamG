@@ -8,6 +8,7 @@
 #include "SceneBase.h"
 #include "TitleScene.h"
 #include "UIManager.h"
+#include "Score.h"
 
 //-----------------------------------------------------------------------------
 // @brief  メイン関数.
@@ -36,8 +37,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	//	最初の経過時間は仮に0.0000001f秒にしておく
 	deltaTime = 0.000001f;
 
-	// UI管理クラスの生成
-	UIManager::CreateInstance();
+	// 実体を一つしか持たないクラスの生成
+	UIManager::CreateInstance();   // UI管理クラス
+	Score::CreateInstance();       // スコアクラス
 
 	// 現在のシーンを生成
 	SceneBase* nowScene = new TitleScene();
@@ -49,8 +51,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		// Updateの戻り値で次のシーンのポインタが返ってくる
 		// tmpSceneに返ってきたシーンのポインタを代入
 		SceneBase* tmpScene = nowScene->Update(deltaTime);
-		// UIの更新処理
-		UIManager::UpdateUI(deltaTime);
+		// 更新処理
+		UIManager::UpdateUI(deltaTime);  // UI
+		Score::Update(deltaTime);        // スコア
 
 		// nowScene(現在)とtmpSceneが異なっていたら
 		if (nowScene != tmpScene)
@@ -69,8 +72,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		// 現在のシーンを描画
 		nowScene->Draw();
-		// UIの描画
-		UIManager::DrawUI();
+		// 描画
+		UIManager::DrawUI();     // UI
+		Score::Draw();           // スコア
 
 		// 裏画面の内容を表画面に反映させる
 		ScreenFlip();
@@ -89,8 +93,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	// シーンの削除
 	delete nowScene;
 	// 実体を一つしか持たないクラスの解放処理
-	UIManager::DeleteInstance();
-
+	UIManager::DeleteInstance();  // UI
+	Score::DeleteInstance();      // スコア
 
 	// DXライブラリの後始末
 	DxLib_End();
