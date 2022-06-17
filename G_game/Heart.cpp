@@ -72,7 +72,7 @@ void Heart::Draw()
 		for (int i = 0; i < mHP; ++i)   // HPが減ったら表示数を減らす
 		{
 			// 左上座標の計算
-			int leftPosX = (int)mPos.x + mUISizeX * i;
+			int leftPosX = (int)mPos.x + (int)mUISizeX * i;
 
 			DrawExtendGraph(leftPosX, (int)mPos.y,                       // 左上座標
 				leftPosX + (int)mUISizeX, (int)mPos.y + (int)mUISizeY,  // 右下座標
