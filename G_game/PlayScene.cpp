@@ -6,20 +6,22 @@ PlayScene::PlayScene()
     : SceneBase(SceneBase::Scene::ePlay)
 {
 	// 生成
-	mBackground = new Background();   // 背景
-	new Speedometer();                // スピードメーター
-	new Heart();                      // 残機
+	mBackground = new Background();         // 背景
+	mSpeedmeter = new Speedometer();        // スピードメーター
+	new Distance(mBackground);              // 残りの長さ
+	new Heart();                            // 残機
 }
 
 PlayScene::~PlayScene()
 {
 	delete mBackground;  // 背景の削除
+	delete mSpeedmeter;  // スピードメーターの削除
 }
 
 SceneBase* PlayScene::Update(float _deltaTime)
 {
 	// 地面まで着地して、メーターが左まで来たら
-	if (Speedometer::mArrowStopFlag)
+	if (mSpeedmeter->GetmArrowStopFlag())
 	{
 		// 条件を満たしていたらリザルトシーンを生成してそのポインタを返す
 		return new ResultScene();

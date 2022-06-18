@@ -10,12 +10,13 @@ Background::Speed Background::mNowSpeedType = Speed::eAcceleration;
 float Background::mMoveSpeed = 0;
 
 Background::Background()
-	: MHeight(-1080.0f)
+	: MAdjustmentLength(600)
+	, MHeight(-1080)
 	, MAcceleration(-6.5f)
-	, MDeceleration(-7.5f)
+	, MDeceleration(-6.5f)
 	, MMaxSpeed(-1300.0f)
-	, MMinSpeed(-300.0f)
-	, MScrollStop(8)
+	, MMinSpeed(-500.0f)
+	, MScrollNum(60)
 	, mBackgroundPosY(0.0f)
 	, mScrollCount(0)
 	, mEndFlag(false)
@@ -28,6 +29,9 @@ Background::Background()
 	// 背景画像の読み込み
 	mBackgroundImage = LoadGraph("data/assets/BackgroundSky.png");     // 空
 	mEndBackgroundImage = LoadGraph("data/assets/BackgroundEnd.png");  // 地面
+
+	// 残りの長さの合計の計算
+	mTotalLength = (MScrollNum + 2) * (MHeight * -1) + MAdjustmentLength;
 }
 
 Background::~Background()
@@ -57,9 +61,12 @@ void Background::Update(float _deltaTime)
 		mBackgroundPosY += mMoveSpeed * _deltaTime;
 	}
 
+	// @@@test
+	mTotalLength += mMoveSpeed * _deltaTime;
+
 	// 背景の描画繰り返し処理
 	// スクロールを繰り返した回数が指定の回数まで行ってなかったら
-	if (mScrollCount != MScrollStop)
+	if (mScrollCount != MScrollNum)
 	{
 		if (mBackgroundPosY <= MHeight)     // 一枚目の画像が画面外に行った時に初期値に戻す
 		{
@@ -70,7 +77,6 @@ void Background::Update(float _deltaTime)
 	// 指定回数スクロールを繰り返して、最後の背景が描画されたら
 	else if (mBackgroundPosY <= MHeight && !mEndFlag)
 	{
-		mBackgroundPosY =  MHeight;
 		mMoveSpeed = 0.0f;
 		mEndFlag = true;                   // mEndFlagをtrueにする
 		mNowSpeedType = Speed::eLanding;   // タグを着地にする
@@ -83,7 +89,7 @@ void Background::Draw()
 	DrawGraph(0, (int)mBackgroundPosY, mBackgroundImage, TRUE);
 
 	// スクロールを繰り返した回数が指定の回数まで行ってなかったら
-	if (mScrollCount != MScrollStop)
+	if (mScrollCount != MScrollNum)
 	{
 		DrawGraph(0, (int)mBackgroundPosY - MHeight, mBackgroundImage, TRUE);   // 空の画像を描画
 	}

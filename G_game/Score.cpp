@@ -14,7 +14,6 @@ Score::Score()
 	, mNowScore(MMaxScore)
 	, mTopScore(0)
 	, mChangeScore(false)
-
 {
 	// ‰æ‘œ‚Ì“Ç‚Ýž‚Ý
 	mImage = LoadGraph("data/assets/UI/Score.png");// •¶Žš
@@ -95,7 +94,7 @@ void Score::Draw()
 	// ƒvƒŒƒC’†
 	if (SceneBase::mIsScene == SceneBase::Scene::ePlay)
 	{
-		DrawGraph(mScore->mPos.x, mScore->mPos.y, mScore->mImage, true);  // •¶Žš‚Ì•`‰æ
+		DrawGraph((int)mScore->mPos.x, (int)mScore->mPos.y, mScore->mImage, true);  // •¶Žš‚Ì•`‰æ
 
 		int num = 0;
 		for (int i = 1; i < mScore->Mdigit + 1; ++i)
@@ -111,7 +110,7 @@ void Score::Draw()
 	else if (SceneBase::mIsScene == SceneBase::Scene::eResult)
 	{
 		// ƒXƒRƒA‚Ì•`‰æ
-		DrawGraph(mScore->mPos.x, mScore->mPos.y, mScore->mImage, true);  // •¶Žš‚Ì•`‰æ
+		DrawGraph((int)mScore->mPos.x, (int)mScore->mPos.y, mScore->mImage, true);  // •¶Žš‚Ì•`‰æ
 
 		int num = 0;
 		for (int i = 1; i < mScore->Mdigit + 1; ++i)

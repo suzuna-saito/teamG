@@ -2,7 +2,6 @@
 #include "BackGround.h"
 
 // 静的メンバ変数の初期化
-bool Speedometer::mArrowStopFlag = false;
 Speedometer::MeterColor Speedometer::mMeterColor = MeterColor::eGreen;
 
 Speedometer::Speedometer()
@@ -15,6 +14,7 @@ Speedometer::Speedometer()
 	, MSpeedControlSlow(0.2f)
 	, MEndArrowSpeed(500.0f)
 	, mMoveSpeed(0.0f)
+	, mArrowStopFlag(false)
 {
 	// 画像の読み込み
 	mImage = LoadGraph("data/assets/UI/Meter.png");       // メーター
@@ -26,9 +26,6 @@ Speedometer::Speedometer()
 	mArrowPos.x = MArrowMaxPosX;   // 三角のポジションｘ
 
 	mArrowPos.y = 900.0f;          // 三角のポジションy
-
-	// フラグの初期化
-	mArrowStopFlag = false;
 }
 
 Speedometer::~Speedometer()

@@ -3,6 +3,7 @@
 // インクルード
 #include "SceneBase.h"
 #include "Background.h"
+#include "Distance.h"
 #include "Speedometer.h"
 #include "Heart.h"
 
@@ -29,5 +30,7 @@ public:
 private:
 	// 背景クラスのポインタ
 	class Background* mBackground;
+	// スピードメータークラスのポインタ
+	class Speedometer* mSpeedmeter;
 };
 

@@ -151,7 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Distance.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayScene.cpp" />
@@ -164,7 +165,8 @@
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BackGround.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Distance.h" />
     <ClInclude Include="Heart.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="ResultScene.h" />

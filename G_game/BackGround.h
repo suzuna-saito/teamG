@@ -36,20 +36,26 @@ public:
 
 private:
 	// 定数
-	const float MHeight;         // 画面サイズ(縦)
+	const int MAdjustmentLength; // 長さの微調整値
+	const int MHeight;           // 画面サイズ(縦)
 	const float MAcceleration;   // 背景の加速スピード
 	const float MDeceleration;   // 背景の減速スピード
 	const float MMaxSpeed;       // 最大スピード
 	const float MMinSpeed;       // 最小スピード
 
-	const int MScrollStop;       // スクロールを止めるタイミング回数
+	const int MScrollNum;       // スクロールを止めるタイミング回数
 
 	// 変数
+	int mTotalLength;           // 合計の長さ
 	int mBackgroundImage;       // 背景のイメージ画像
 	int mEndBackgroundImage;    // 一番下の背景のイメージ画像
 	float mBackgroundPosY;      // 背景ポジションY
 
 	int mScrollCount;           // スクロールを繰り返した回数カウント
 	bool mEndFlag;              // 着地地点まで背景を描画したかどうか
+
+public:  // ゲッター、セッター
+	// 合計の長さを取得
+	int GetTotalLength() { return mTotalLength; }
 };
 

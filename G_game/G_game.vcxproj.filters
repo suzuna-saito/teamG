@@ -15,6 +15,21 @@
     <Filter Include="ソース ファイル\UI">
       <UniqueIdentifier>{f9944d7b-f2c9-453b-b4ac-5fc34b8acf98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Score">
+      <UniqueIdentifier>{9b9f6df1-ab75-4e65-b67a-8b8aa40d9b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Background">
+      <UniqueIdentifier>{cbf74655-c0c9-4c15-87dc-1f2fe30c0406}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UI\Distance">
+      <UniqueIdentifier>{f1084078-4fac-4a52-94d1-dffb110b7587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UI\Heart">
+      <UniqueIdentifier>{06ca0a51-4fb0-4630-bba7-f0cf98b53b0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UI\Speedmeter">
+      <UniqueIdentifier>{d364bc64-1d71-4f75-87fb-7884bcaf7ac5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -32,23 +47,26 @@
     <ClCompile Include="ResultScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="BackGround.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="UIBase.cpp">
       <Filter>ソース ファイル\UI</Filter>
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>ソース ファイル\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Speedometer.cpp">
-      <Filter>ソース ファイル\UI</Filter>
+    <ClCompile Include="Score.cpp">
+      <Filter>ソース ファイル\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>ソース ファイル\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="Distance.cpp">
+      <Filter>ソース ファイル\UI\Distance</Filter>
     </ClCompile>
     <ClCompile Include="Heart.cpp">
-      <Filter>ソース ファイル\UI</Filter>
+      <Filter>ソース ファイル\UI\Heart</Filter>
     </ClCompile>
-    <ClCompile Include="Score.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="Speedometer.cpp">
+      <Filter>ソース ファイル\UI\Speedmeter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,23 +82,26 @@
     <ClInclude Include="ResultScene.h">
       <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="BackGround.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="UIBase.h">
       <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
     <ClInclude Include="UIManager.h">
       <Filter>ソース ファイル\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Speedometer.h">
-      <Filter>ソース ファイル\UI</Filter>
+    <ClInclude Include="Score.h">
+      <Filter>ソース ファイル\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>ソース ファイル\Background</Filter>
+    </ClInclude>
+    <ClInclude Include="Distance.h">
+      <Filter>ソース ファイル\UI\Distance</Filter>
     </ClInclude>
     <ClInclude Include="Heart.h">
-      <Filter>ソース ファイル\UI</Filter>
+      <Filter>ソース ファイル\UI\Heart</Filter>
     </ClInclude>
-    <ClInclude Include="Score.h">
-      <Filter>ソース ファイル</Filter>
+    <ClInclude Include="Speedometer.h">
+      <Filter>ソース ファイル\UI\Speedmeter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

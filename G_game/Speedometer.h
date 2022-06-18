@@ -31,7 +31,6 @@ public:
 	void Draw()override;
 
 	// 静的メンバ変数
-	static bool mArrowStopFlag;    // 地面に着地した後に三角が左まで行ったかどうか
 	static MeterColor mMeterColor; // 現在のメーターの色
 private:
 	// 定数
@@ -48,5 +47,11 @@ private:
 	int mArrowImage;           // 三角画像
 	VECTOR mArrowPos;          // 三角のポジション
 	float mMoveSpeed;          // 三角の移動スピード
+
+	bool mArrowStopFlag;    // 地面に着地した後に三角が左まで行ったかどうか
+
+public:  // ゲッター、セッター
+	// 地面に着地した後に三角が左まで行ったかどうかを返す
+	bool GetmArrowStopFlag() { return mArrowStopFlag; }
 };
 
