@@ -10,11 +10,10 @@ Speedometer::Speedometer()
 	, MArrowMaxPosX(540.0f)
 	, MYellowPos(440.0f)
 	, MRedPos(260.0f)
-	, MSpeedControlSoon(0.2f)
-	, MSpeedControlSlow(0.2f)
+	, MSpeedControlSoon(0.45f)
+	, MSpeedControlSlow(0.3f)
 	, MEndArrowSpeed(500.0f)
 	, mMoveSpeed(0.0f)
-	, mArrowStopFlag(false)
 {
 	// 画像の読み込み
 	mImage = LoadGraph("data/assets/UI/Meter.png");       // メーター
@@ -47,7 +46,7 @@ void Speedometer::Update(float _deltaTime)
 	}
 	else if (Background::mNowSpeedType == Background::Speed::eLanding)
 	{
-		mMoveSpeed = -MEndArrowSpeed;
+		mMoveSpeed = 0.0f;
 	}
 
 	// 三角のポジション更新
@@ -72,11 +71,6 @@ void Speedometer::Update(float _deltaTime)
 	{
 		mMoveSpeed = 0.0f;
 		mArrowPos.x = MArrowMinPosX;
-
-		if (Background::mNowSpeedType == Background::Speed::eLanding)  // 一番左まで三角が行ったとき
-		{                                                              // 着地してたら
-			mArrowStopFlag = true;
-		}
 	}
 	if (mArrowPos.x > MArrowMaxPosX)
 	{
