@@ -2,9 +2,10 @@
 
 // インクルード
 #include "SceneBase.h"
+#include "Enemy.h"
 
 /* プレイシーン */
-class PlayScene :public SceneBase
+class PlayScene :public SceneBase,Enemy
 {
 public:
 	// コンストラクタ
