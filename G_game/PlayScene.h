@@ -3,6 +3,7 @@
 // インクルード
 #include "SceneBase.h"
 #include "Background.h"
+#include "Enemy.h"
 #include "Distance.h"
 #include "Speedometer.h"
 #include "Heart.h"
@@ -28,11 +29,9 @@ public:
 	void Draw()override;
 
 private:
-	// 背景クラスのポインタ
-	class Background* mBackground;
-	// スピードメータークラスのポインタ
-	class Speedometer* mSpeedmeter;
-	// 残機クラスのポインタ
-	class Heart* mHeart;
+	// クラスのポインタ変数
+	class Background* mBackground;   // 背景クラス
+	class Enemy* mEnemy;             // エネミークラス
+	class Heart* mHeart;             // 残機クラス
 };
 
