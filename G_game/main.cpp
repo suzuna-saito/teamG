@@ -7,16 +7,18 @@
 #include "DxLib.h"
 #include "SceneBase.h"
 #include "TitleScene.h"
-#include "UIManager.h"
-#include "Score.h"
+#include "PlayScene.h"
+#include "Player.h"
 
 //-----------------------------------------------------------------------------
 // @brief  メイン関数.
 //-----------------------------------------------------------------------------
+using namespace std;
+
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	// 画面モードのセット
-	SetGraphMode(650, 1080, 16);
+	SetGraphMode(ScreenBeside, ScreenVertical, ColorDepth);
 	ChangeWindowMode(TRUE);
 
 	// DXライブラリの初期化
@@ -37,12 +39,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	//	最初の経過時間は仮に0.0000001f秒にしておく
 	deltaTime = 0.000001f;
 
-	// 実体を一つしか持たないクラスの生成
-	UIManager::CreateInstance();   // UI管理クラス
-	Score::CreateInstance();       // スコアクラス
-
 	// 現在のシーンを生成
 	SceneBase* nowScene = new TitleScene();
+
+	
 
 	// Escキーが押されるか、ウィンドウが閉じられるまでループ
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
@@ -51,31 +51,20 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		// Updateの戻り値で次のシーンのポインタが返ってくる
 		// tmpSceneに返ってきたシーンのポインタを代入
 		SceneBase* tmpScene = nowScene->Update(deltaTime);
-		// 更新処理
-		UIManager::UpdateUI(deltaTime);  // UI
-		Score::Update(deltaTime);        // スコア
 
 		// nowScene(現在)とtmpSceneが異なっていたら
 		if (nowScene != tmpScene)
 		{
 			// 現在のシーンを解放
 			delete nowScene;
-			// いらないUIを削除する
-			UIManager::DeleteUI();
-
 			// nowSceneにtmpSceneを代入
 			nowScene = tmpScene;
 		}
-
 		// 画面を初期化する
 		ClearDrawScreen();
 
 		// 現在のシーンを描画
 		nowScene->Draw();
-		// 描画
-		UIManager::DrawUI();     // UI
-		Score::Draw();           // スコア
-
 		// 裏画面の内容を表画面に反映させる
 		ScreenFlip();
 
@@ -88,16 +77,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 		// 今回取得した時間を保存
 		time = nowTime;
+
+
 	}
 
 	// シーンの削除
 	delete nowScene;
-	// 実体を一つしか持たないクラスの解放処理
-	UIManager::DeleteInstance();  // UI
-	Score::DeleteInstance();      // スコア
 
-	// DXライブラリの後始末
-	DxLib_End();
+	//// DXライブラリの後始末
+	//DxLib_End();
 
 	// ソフトの終了
 	return 0;
