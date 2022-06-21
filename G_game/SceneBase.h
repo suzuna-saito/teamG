@@ -3,6 +3,10 @@
 // インクルード
 #include "DxLib.h"
 
+const int ScreenBeside = 650;
+const int ScreenVertical = 1080;
+const int ColorDepth = 16;
+
 /* シーンの基底クラス */
 class SceneBase
 {
