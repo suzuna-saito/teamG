@@ -30,6 +30,12 @@
     <Filter Include="ソース ファイル\UI\Speedmeter">
       <UniqueIdentifier>{d364bc64-1d71-4f75-87fb-7884bcaf7ac5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Enemy">
+      <UniqueIdentifier>{8301416d-6189-49a0-8e8c-20d34084dbbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Player">
+      <UniqueIdentifier>{c22d3d9f-c05b-44d3-8097-ef63fadeded9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +74,12 @@
     <ClCompile Include="Speedometer.cpp">
       <Filter>ソース ファイル\UI\Speedmeter</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -102,6 +114,12 @@
     </ClInclude>
     <ClInclude Include="Speedometer.h">
       <Filter>ソース ファイル\UI\Speedmeter</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ソース ファイル\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

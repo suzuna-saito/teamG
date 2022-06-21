@@ -36,5 +36,5 @@ private:
 	int pImage;
 	int m_PlayerX;
 	int m_PlayerY;
-	
+
 };

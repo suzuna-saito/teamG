@@ -153,8 +153,10 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Distance.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Heart.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="SceneBase.cpp" />
@@ -167,7 +169,9 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Distance.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Heart.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="ResultScene.h" />
     <ClInclude Include="SceneBase.h" />
