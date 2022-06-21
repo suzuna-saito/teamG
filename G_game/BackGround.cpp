@@ -10,13 +10,13 @@ Background::Speed Background::mNowSpeedType = Speed::eAcceleration;
 float Background::mMoveSpeed = 0;
 
 Background::Background()
-	: MAdjustmentLength(600)
-	, MHeight(-1080)
-	, MAcceleration(-6.5f)
-	, MDeceleration(-6.5f)
+	: MHeight(-1080)
+	, MAcceleration(-4.5f)
+	, MDeceleration(-4.0f)
 	, MMaxSpeed(-1300.0f)
 	, MMinSpeed(-500.0f)
-	, MScrollNum(60)
+	, MScrollNum(5)
+	, MAdjustmentLength(MScrollNum * 50)
 	, mBackgroundPosY(0.0f)
 	, mScrollCount(0)
 	, mEndFlag(false)
@@ -31,7 +31,7 @@ Background::Background()
 	mEndBackgroundImage = LoadGraph("data/assets/BackgroundEnd.png");  // 地面
 
 	// 残りの長さの合計の計算
-	mTotalLength = (MScrollNum + 2) * (MHeight * -1) + MAdjustmentLength;
+	mTotalLength = (MScrollNum + 1) * (MHeight * -1) + MAdjustmentLength;
 }
 
 Background::~Background()

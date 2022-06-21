@@ -32,5 +32,7 @@ private:
 	class Background* mBackground;
 	// スピードメータークラスのポインタ
 	class Speedometer* mSpeedmeter;
+	// 残機クラスのポインタ
+	class Heart* mHeart;
 };
 

@@ -36,7 +36,6 @@ public:
 
 private:
 	// 定数
-	const int MAdjustmentLength; // 長さの微調整値
 	const int MHeight;           // 画面サイズ(縦)
 	const float MAcceleration;   // 背景の加速スピード
 	const float MDeceleration;   // 背景の減速スピード
@@ -44,6 +43,8 @@ private:
 	const float MMinSpeed;       // 最小スピード
 
 	const int MScrollNum;       // スクロールを止めるタイミング回数
+
+	const int MAdjustmentLength; // 長さの微調整値
 
 	// 変数
 	int mTotalLength;           // 合計の長さ
