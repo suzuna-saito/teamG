@@ -2,6 +2,7 @@
 
 // インクルード
 #include "SceneBase.h"
+#include "Player.h"
 
 /* プレイシーン */
 class PlayScene :public SceneBase
@@ -22,5 +23,8 @@ public:
 	/// シーンの描画
 	/// </summary>
 	void Draw()override;
+
+private:
+	class Player* mPlayer;
 };
 

@@ -20,12 +20,6 @@ public:
 	//デストラクタ
 	~Player();
 
-	/// <summary>
-	/// プレイヤーの初期座標代入
-	/// </summary>
-	/// <param name="a">　X座標　</param>
-	/// <param name="b">　Y座標　</param>
-	void FirstPostion();
 
 	/// <summary>
 	/// プレイヤーの描画
@@ -33,13 +27,14 @@ public:
 	void PlayerDraw();
 
 	void PlayerMove();
-
+	
+	
 
 private:
-
+	int m_MouseX;
+	int m_MouseY;
 	int pImage;
 	int m_PlayerX;
 	int m_PlayerY;
-	int m_MouseX;
-	int m_MouseY;
+	
 };

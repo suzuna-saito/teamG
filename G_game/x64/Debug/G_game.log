@@ -1,1 +1,4 @@
-﻿  G_game.vcxproj -> C:\Users\student\Desktop\team3\x64\Debug\G_game.exe
+﻿  Player.cpp
+C:\Users\student\Desktop\team3\G_game\Player.cpp(25,7): warning C4101: 'StrBuf': ローカル変数は 1 度も使われていません。
+C:\Users\student\Desktop\team3\G_game\Player.cpp(25,20): warning C4101: 'StrBuf2': ローカル変数は 1 度も使われていません。
+  G_game.vcxproj -> C:\Users\student\Desktop\team3\x64\Debug\G_game.exe
