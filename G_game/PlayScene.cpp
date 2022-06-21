@@ -8,6 +8,7 @@ PlayScene::PlayScene()
 	// 生成
 	mBackground = new Background();         // 背景
 	mEnemy = new Enemy();                   // エネミー
+	mPlayer = new Player();                 // プレイヤー
 	mHeart = new Heart();                   // 残機
 	new Speedometer();                      // スピードメーター
 	new Distance(mBackground);              // 残りの長さ
@@ -17,6 +18,7 @@ PlayScene::~PlayScene()
 {
 	delete mBackground;  // 背景の削除
 	delete mEnemy;       // エネミーの削除
+	delete mPlayer;      // プレイヤーの削除
 	delete mHeart;       // 残機の削除
 }
 
@@ -33,6 +35,8 @@ SceneBase* PlayScene::Update(float _deltaTime)
 	mBackground->Update(_deltaTime);
 	// エネミーの更新
 	mEnemy->Update();
+	// プレイヤーの更新
+	mPlayer->PlayerMove();
 
 	// シーン遷移条件を満たしていなかったら今のポインタを返す
 	return this;
@@ -44,4 +48,6 @@ void PlayScene::Draw()
 	mBackground->Draw();
 	// エネミーの描画
 	mEnemy->Draw();
+	// プレイヤーの描画
+	mPlayer->PlayerDraw();
 }
