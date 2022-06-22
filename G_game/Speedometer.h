@@ -21,12 +21,12 @@ public:
 	~Speedometer();
 
 	/// <summary>
-	/// UIの更新処理
+	/// スピードメーターの更新処理
 	/// </summary>
 	void Update(float _deltaTime)override;
 
 	/// <summary>
-	/// UIの描画
+	/// スピードメーターの描画
 	/// </summary>
 	void Draw()override;
 

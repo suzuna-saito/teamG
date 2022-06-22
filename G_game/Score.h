@@ -56,9 +56,5 @@ private:
 
 	// 関数
 	void mSubtract();   // スコアの点を引く
-
-public: // ゲッター、セッター
-	// スコアのセット
-	int SetScore(int _score) {};
 };
 

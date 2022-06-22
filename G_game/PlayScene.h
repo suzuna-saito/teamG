@@ -5,6 +5,7 @@
 #include "Background.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "Countdown.h"
 #include "Distance.h"
 #include "Speedometer.h"
 #include "Heart.h"

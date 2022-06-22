@@ -57,6 +57,17 @@ void Background::Update(float _deltaTime)
 			mNowSpeedType = Speed::eAcceleration;  // タグを加速中にする
 		}
 
+
+		// 移動制限
+		if (mMoveSpeed != 0 && mMoveSpeed > MMinSpeed)   // 移動速度が最小速度より遅かったら
+		{
+			mMoveSpeed = MMinSpeed;                      // スクロール速度を最小にする
+		}
+		else if (mMoveSpeed < MMaxSpeed)                 // 移動速度が最大速度より早かったら
+		{
+			mMoveSpeed = MMaxSpeed;                      // スクロール速度を最大にする
+		}
+
 		// 背景ポジションの更新
 		mBackgroundPosY += mMoveSpeed * _deltaTime;
 	}
@@ -98,4 +109,10 @@ void Background::Draw()
 	{
 		DrawGraph(0, (int)mBackgroundPosY - MHeight, mEndBackgroundImage, TRUE); // 地面の画像を描画
 	}
+
+
+	unsigned int Color;
+
+	Color = GetColor(0, 0, 0);
+	DrawFormatString(0, 500, Color, "速さ : %2f", mMoveSpeed);
 }

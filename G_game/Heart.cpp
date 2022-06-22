@@ -32,7 +32,7 @@ Heart::~Heart()
 
 void Heart::Update(float _deltaTime)
 {
-	// @@@ デバック
+	// @@@ デバッグ
 	// Bを押すと体力減少
 	if (CheckHitKey(KEY_INPUT_B) && test == 0)
 	{

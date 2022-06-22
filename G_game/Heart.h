@@ -13,12 +13,12 @@ public:
 	~Heart();
 
 	/// <summary>
-	/// UIの更新処理
+	/// 残機の更新処理
 	/// </summary>
 	void Update(float _deltaTime)override;
 
 	/// <summary>
-	/// UIの描画
+	/// 残機の描画
 	/// </summary>
 	void Draw()override;
 
@@ -30,7 +30,7 @@ private:
 	// 変数
 	int mHP;        // HP
 
-	int test;
+	int test;       // デバッグ用
 
 public:
 	int GetHP() { return mHP; }

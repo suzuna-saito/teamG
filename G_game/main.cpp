@@ -39,7 +39,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	// 実体を一つしか持たないクラスの生成
 	UIManager::CreateInstance();   // UI管理クラス
-	Score::CreateInstance();       // スコアクラス
+	//Score::CreateInstance();       // スコアクラス
 
 	// 現在のシーンを生成
 	SceneBase* nowScene = new TitleScene();
@@ -53,7 +53,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		SceneBase* tmpScene = nowScene->Update(deltaTime);
 		// 更新処理
 		UIManager::UpdateUI(deltaTime);  // UI
-		Score::Update(deltaTime);        // スコア
+		//Score::Update(deltaTime);        // スコア
 
 		// nowScene(現在)とtmpSceneが異なっていたら
 		if (nowScene != tmpScene)
@@ -74,7 +74,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		nowScene->Draw();
 		// 描画
 		UIManager::DrawUI();     // UI
-		Score::Draw();           // スコア
+		//Score::Draw();           // スコア
 
 		// 裏画面の内容を表画面に反映させる
 		ScreenFlip();
@@ -94,7 +94,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	delete nowScene;
 	// 実体を一つしか持たないクラスの解放処理
 	UIManager::DeleteInstance();  // UI
-	Score::DeleteInstance();      // スコア
+	//Score::DeleteInstance();      // スコア
 
 	// DXライブラリの後始末
 	DxLib_End();

@@ -10,6 +10,7 @@ PlayScene::PlayScene()
 	mEnemy = new Enemy();                   // エネミー
 	mPlayer = new Player();                 // プレイヤー
 	mHeart = new Heart();                   // 残機
+	new Countdown();                        // カウントダウン
 	new Speedometer();                      // スピードメーター
 	new Distance(mBackground);              // 残りの長さ
 }

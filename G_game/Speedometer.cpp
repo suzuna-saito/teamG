@@ -10,7 +10,7 @@ Speedometer::Speedometer()
 	, MArrowMaxPosX(540.0f)
 	, MYellowPos(440.0f)
 	, MRedPos(260.0f)
-	, MSpeedControlSoon(0.15f)
+	, MSpeedControlSoon(0.14f)
 	, MSpeedControlSlow(0.15f)
 	, MEndArrowSpeed(500.0f)
 	, mMoveSpeed(0.0f)
@@ -44,7 +44,7 @@ void Speedometer::Update(float _deltaTime)
 	{
 		mMoveSpeed = Background::mMoveSpeed * MSpeedControlSlow;
 	}
-	else if (Background::mNowSpeedType == Background::Speed::eLanding)
+	else
 	{
 		mMoveSpeed = 0.0f;
 	}
@@ -84,4 +84,9 @@ void Speedometer::Draw()
 	// 描画
 	DrawGraph((int)mPos.x, (int)mPos.y, mImage, TRUE);                 // メーター
 	DrawGraph((int)mArrowPos.x, (int)mArrowPos.y, mArrowImage, TRUE);  // 三角
+
+	unsigned int Color;
+
+	Color = GetColor(0, 0, 0);
+	DrawFormatString(0, 800, Color, "速さ : %2f", mMoveSpeed);
 }
