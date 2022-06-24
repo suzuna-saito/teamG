@@ -6,7 +6,7 @@ TitleScene::TitleScene()
 	: SceneBase(SceneBase::Scene::eTitle)
 {
 	// ƒ^ƒCƒgƒ‹‰æ‘œ‚Ì“Ç‚İ‚İ(‰¼)
-	mImage = LoadGraph("data/assets/Title.png");
+	mImage = LoadGraph("data/assets/TitleScene/Title.png");
 }
 
 TitleScene::~TitleScene()

@@ -27,8 +27,8 @@ Background::Background()
 	mNowSpeedType = Speed::eAcceleration;
 
 	// 背景画像の読み込み
-	mBackgroundImage = LoadGraph("data/assets/BackgroundSky.png");     // 空
-	mEndBackgroundImage = LoadGraph("data/assets/BackgroundEnd.png");  // 地面
+	mBackgroundImage = LoadGraph("data/assets/PlayScene/BackgroundSky.png");     // 空
+	mEndBackgroundImage = LoadGraph("data/assets/PlayScene/BackgroundEnd.png");  // 地面
 
 	// 残りの長さの合計の計算
 	mTotalLength = (MScrollNum + 1) * (MHeight * -1) + MAdjustmentLength;
