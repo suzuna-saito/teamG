@@ -2,6 +2,7 @@
 
 // インクルード
 #include "SceneBase.h"
+#include <vector>
 
 /* タイトルシーン */
 class TitleScene :public SceneBase
@@ -22,5 +23,17 @@ public:
 	/// シーンの描画
 	/// </summary>
 	void Draw()override;
+
+private:
+	// 定数
+	const int MMinAlpha;   // 最小透明度
+	const int MMaxAlpha;   // 最大透明度
+
+	// 変数
+	std::vector<int> mOtherImage;  // 画像
+	std::vector<VECTOR> mPos;      // 画像のポジション
+
+	int mAlpha;      // 透明度
+	int mChangeSpeed;// 透明度の変化値
 };
 
