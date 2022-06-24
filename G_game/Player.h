@@ -2,14 +2,7 @@
 
 // インクルード
 #include "DxLib.h"
-
-//プレイヤーの初期位置
-const int FirstPosX = 325;
-const int FirstPosY = 100;
-
-const int LeftPosX = 162;
-const int MiddlePosX = 325;
-const int RightPosX = 487;
+#include "Background.h"
 
 //プレイヤークラス
 class Player
@@ -21,20 +14,44 @@ public:
 	~Player();
 
 
-	/// <summary>
 	/// プレイヤーの描画
-	/// </summary>
 	void PlayerDraw();
 
-	void PlayerMove();
+	/// プレイヤーの横移動
+	void BesidePlayerMove();
+	///プレイヤーの速度変更
 	
-	
+	//マウスの左クリック管理
+	int MouseLeftClick();
+
+	//マウスの長押し管理
+	int MouseLongPress();
+
+	//左クリック長押し処理
+	void PlayerSpeed();
+
+	void PlayerLandingPreparation();
+	void PlayerLanding();
 
 private:
-	int m_MouseX;
-	int m_MouseY;
-	int pImage;
-	int m_PlayerX;
-	int m_PlayerY;
+	int mMouseX;			//マウスのX座標
+	int mMouseY;			//マウスのY座標
+	int pImage;				//プレイヤーの画像
+	int mPlayerX;			//プレイヤーのX座標
+	int mPlayerY;			//プレイヤーのY座標
+	bool mMouseClick;		//マウスで左クリックされたか
+	bool ClickLog;
+	bool ClickTmpLog;
+	bool LongPress;
+	class Background* mBackground;   // 背景クラス
+
+	//プレイヤーの初期位置
+	const int FIRSTPOSX = 275;
+	const int FIRSTPOSY = 250;
+	
+	//プレイヤーの移動位置
+	const int LEFTPOSX = 62;
+	const int MIDDLEPOSX = 275;
+	const int RIGHTPOSX = 457;
 
 };

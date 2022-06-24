@@ -2,15 +2,20 @@
 #include "Dxlib.h"
 #include "PlayScene.h"
 #include "Player.h"
+#include "BackGround.h"
 
-Player::Player() :m_PlayerX(0), m_PlayerY(0), m_MouseX(0), m_MouseY(0)
+
+Player::Player()
 {
 
 	//プレイヤーの初期位置の代入
-	m_PlayerX = FirstPosX;
-	m_PlayerY = FirstPosY;
+	mPlayerX = FIRSTPOSX;
+	mPlayerY = FIRSTPOSY;
 	//プレイヤー画像の読み込み
 	pImage = LoadGraph("data/assets/Player.png");
+	//マウスクリックの初期化
+	mMouseClick = FALSE;
+	LongPress = FALSE;
 }
 
 Player::~Player()
@@ -22,7 +27,6 @@ Player::~Player()
 /// </summary>
 void Player::PlayerDraw()
 {
-	char StrBuf[128], StrBuf2[32];
 	int StringCr, BoxCr = 0;
 	// 画面左上の領域に黒い四角を描き前に描いてあった文字列を消す
 	DrawBox(0, 0, 640, 32, BoxCr, TRUE);
@@ -32,34 +36,88 @@ void Player::PlayerDraw()
 	// 黒の値を取得
 	BoxCr = GetColor(0, 0, 0);
 	// 座標文字列を描く
-	DrawFormatString(0, 0, StringCr, "座標Ｘ %d　　座標Ｙ %d", m_MouseX, m_MouseY);
+	DrawFormatString(0, 0, StringCr, "座標Ｘ %d　　座標Ｙ %d", mMouseX, mMouseY);
+	//長押し状態の確認
+	DrawFormatString(300, 0, StringCr, "%d　　%d", ClickLog, ClickTmpLog);
+	DrawFormatString(500, 0, StringCr, "%d", LongPress);
 
 
-	DrawGraph(m_PlayerX, m_PlayerY, pImage, TRUE);
+	DrawGraph(mPlayerX, mPlayerY, pImage, TRUE);
 }
 
-void Player::PlayerMove()
+void Player::BesidePlayerMove()
 {
-	/// <summary>
 	/// マウスの座標をとる
-	/// </summary>
-	GetMousePoint(&m_MouseX, &m_MouseY);
+	GetMousePoint(&mMouseX, &mMouseY);
 	
-	/// <summary>
 	/// 画面の左側にカーソルがあり、クリックした場合LeftPosに移動する
-	/// </summary>
-	if (m_MouseX <= ScreenBeside / 3 && GetMouseInput()&MOUSE_INPUT_LEFT) 
-		m_PlayerX = LeftPosX;
+	if (mMouseX <= ScreenBeside / 3 && MouseLeftClick())
+		mPlayerX = LEFTPOSX;
 
-	/// <summary>
+
 	/// 画面の真ん中にカーソルがあり、クリックした場合MiddlePosに移動する
-	/// </summary>
-	else if ((ScreenBeside / 3 < m_MouseX) && (m_MouseX <= ScreenBeside * 2 / 3) && GetMouseInput() & MOUSE_INPUT_LEFT)
-		m_PlayerX = MiddlePosX;
+	else if ((ScreenBeside / 3 < mMouseX) && (mMouseX <= ScreenBeside * 2 / 3) && MouseLeftClick())
+		mPlayerX = MIDDLEPOSX;
 
-	/// <summary>
+
 	/// 画面の右側にカーソルがあり、クリックした場合LeftPosに移動する
-	/// </summary>
-	else if (m_MouseX > ScreenBeside * 2/ 3 && GetMouseInput() & MOUSE_INPUT_LEFT)
-		m_PlayerX = RightPosX;
+	else if (mMouseX > ScreenBeside * 2/ 3 && MouseLeftClick())
+		mPlayerX = RIGHTPOSX;
 }
+
+int Player::MouseLeftClick()
+{
+	//左クリックされたら
+	if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
+	{
+		ClickTmpLog = 1;
+		return TRUE;
+	}
+	//左クリックされなかったら
+	else
+	{
+		ClickTmpLog = 0;
+		return FALSE;
+	}
+}
+
+int  Player::MouseLongPress()
+{
+	//前フレームと比較する
+	if (ClickTmpLog == ClickLog)
+	{
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
+}
+
+void Player::PlayerSpeed()
+{
+	if (MouseLongPress())
+	{
+		Background::mMoveSpeed;
+	}
+	ClickLog = ClickTmpLog;
+}
+
+void Player::PlayerLandingPreparation()
+{
+	Background * mBackground = new Background();         // 背景
+	if (Background GetTotalLength <= 50&&
+		Background * GetTotalLength() > 0)
+	{
+
+	}
+}
+
+void Player::PlayerLanding()
+{
+	if (Background::mMoveSpeed == 0)
+	{
+		mPlayerY += 10;
+	}
+}
+

@@ -36,7 +36,9 @@ SceneBase* PlayScene::Update(float _deltaTime)
 	// エネミーの更新
 	mEnemy->Update();
 	// プレイヤーの更新
-	mPlayer->PlayerMove();
+	mPlayer->BesidePlayerMove();
+	mPlayer->PlayerSpeed();
+	mPlayer->PlayerLanding();
 
 	// シーン遷移条件を満たしていなかったら今のポインタを返す
 	return this;

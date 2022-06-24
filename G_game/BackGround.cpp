@@ -99,3 +99,4 @@ void Background::Draw()
 		DrawGraph(0, (int)mBackgroundPosY - MHeight, mEndBackgroundImage, TRUE); // ’n–Ê‚Ì‰æ‘œ‚ð•`‰æ
 	}
 }
+
