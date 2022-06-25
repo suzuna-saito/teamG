@@ -32,3 +32,4 @@
 *.txt
 .vs
 x64
+G_game/x64/Debug
