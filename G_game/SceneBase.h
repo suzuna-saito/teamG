@@ -18,6 +18,7 @@ public:
 		eTitle,   // タイトル
 		ePlay,    // プレイ
 		eResult,  // リザルト
+		eLoad,    // ロード
 	};
 
 	/// <summary>

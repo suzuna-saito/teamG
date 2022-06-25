@@ -156,6 +156,7 @@
     <ClCompile Include="Distance.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Heart.cpp" />
+    <ClCompile Include="LoadScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayScene.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Distance.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Heart.h" />
+    <ClInclude Include="LoadScene.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="ResultScene.h" />

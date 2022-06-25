@@ -42,5 +42,4 @@ private:
 	int mStartTime;         // 一秒の計測を始める時間
 	int mNowTime;           // 現在のタイム
 	int mSubTime;           // 秒数の減算値
-
 };

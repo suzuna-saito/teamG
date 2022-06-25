@@ -86,6 +86,9 @@
     <ClCompile Include="Countdown.cpp">
       <Filter>ソース ファイル\UI\Countdown</Filter>
     </ClCompile>
+    <ClCompile Include="LoadScene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -129,6 +132,9 @@
     </ClInclude>
     <ClInclude Include="Countdown.h">
       <Filter>ソース ファイル\UI\Countdown</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScene.h">
+      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

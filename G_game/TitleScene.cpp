@@ -1,5 +1,6 @@
 // インクルード
 #include "TitleScene.h"
+#include "LoadScene.h"
 #include "PlayScene.h"
 
 TitleScene::TitleScene()
@@ -50,7 +51,7 @@ SceneBase* TitleScene::Update(float _deltaTime)
 		SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
 		// 条件を満たしていたらプレイシーンを生成してそのポインタを返す
-		return new PlayScene();
+		return new LoadScene(Scene::ePlay);
 	}
 
 	// マウスカーソルがボタンにあっているか
