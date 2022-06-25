@@ -60,7 +60,7 @@ public:
 
 private:
 	//定数
-	int cnt; //描画移動
+	int cnt[5]; //描画移動
 	//変数
 	float mEnemyPosiX[5];      // 敵ポジションX
 	float mEnemyPosiY[5];      // 敵ポジションY
