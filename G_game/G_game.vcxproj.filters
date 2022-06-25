@@ -36,6 +36,9 @@
     <Filter Include="ソース ファイル\Player">
       <UniqueIdentifier>{c22d3d9f-c05b-44d3-8097-ef63fadeded9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\UI\Countdown">
+      <UniqueIdentifier>{97f8cac9-030f-47c4-b0db-74837aa1c695}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -80,6 +83,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>ソース ファイル\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Countdown.cpp">
+      <Filter>ソース ファイル\UI\Countdown</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -120,6 +126,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Countdown.h">
+      <Filter>ソース ファイル\UI\Countdown</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

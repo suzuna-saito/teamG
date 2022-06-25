@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Countdown.cpp" />
     <ClCompile Include="Distance.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Heart.cpp" />
@@ -168,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="Countdown.h" />
     <ClInclude Include="Distance.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Heart.h" />

@@ -27,8 +27,8 @@ Background::Background()
 	mNowSpeedType = Speed::eAcceleration;
 
 	// 背景画像の読み込み
-	mBackgroundImage = LoadGraph("data/assets/BackgroundSky.png");     // 空
-	mEndBackgroundImage = LoadGraph("data/assets/BackgroundEnd.png");  // 地面
+	mBackgroundImage = LoadGraph("data/assets/PlayScene/BackgroundSky.png");     // 空
+	mEndBackgroundImage = LoadGraph("data/assets/PlayScene/BackgroundEnd.png");  // 地面
 
 	// 残りの長さの合計の計算
 	mTotalLength = (MScrollNum + 1) * (MHeight * -1) + MAdjustmentLength;
@@ -55,6 +55,17 @@ void Background::Update(float _deltaTime)
 		{
 			mMoveSpeed += MAcceleration;            // スクロール速度を早くする
 			mNowSpeedType = Speed::eAcceleration;  // タグを加速中にする
+		}
+
+
+		// 移動制限
+		if (mMoveSpeed != 0 && mMoveSpeed > MMinSpeed)   // 移動速度が最小速度より遅かったら
+		{
+			mMoveSpeed = MMinSpeed;                      // スクロール速度を最小にする
+		}
+		else if (mMoveSpeed < MMaxSpeed)                 // 移動速度が最大速度より早かったら
+		{
+			mMoveSpeed = MMaxSpeed;                      // スクロール速度を最大にする
 		}
 
 		// 背景ポジションの更新
@@ -98,5 +109,11 @@ void Background::Draw()
 	{
 		DrawGraph(0, (int)mBackgroundPosY - MHeight, mEndBackgroundImage, TRUE); // 地面の画像を描画
 	}
+
+
+	unsigned int Color;
+
+	Color = GetColor(0, 0, 0);
+	DrawFormatString(0, 500, Color, "速さ : %2f", mMoveSpeed);
 }
 
