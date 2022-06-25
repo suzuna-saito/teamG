@@ -6,10 +6,10 @@
 Enemy::Enemy()
 {
 	//“G‚ÌÀ•Wİ’u
-	mEnemyPosiX[0] = 0;   mEnemyPosiY[0] = 1200;
-	mEnemyPosiX[1] = 200; mEnemyPosiY[1] = 1000;
-	mEnemyPosiX[2] = 0;   mEnemyPosiY[2] = 1500;
-	mEnemyPosiX[3] = 420; mEnemyPosiY[3] = 500;
+	mEnemyPosiX[0] = 0;   mEnemyPosiY[0] = 1500;
+	mEnemyPosiX[1] = 200; mEnemyPosiY[1] = 1800;
+	mEnemyPosiX[2] = 0;   mEnemyPosiY[2] = 2500;
+	mEnemyPosiX[3] = 420; mEnemyPosiY[3] = 4000;
 	mEnemyPosiX[4] = 200; mEnemyPosiY[4] = 2000;
 
 	//“G‰æ‘œ‚Ì“Ç‚İ‚İ
@@ -20,7 +20,11 @@ Enemy::Enemy()
 	mEnemy5Image = LoadGraph("data/assets/Enemy/Enemy5.png");     //“G5
 
 
-	cnt = 0; //cnt‚Ì‰Šú‰»
+	cnt[0] = 0; //cnt[0]‚Ì‰Šú‰»
+	cnt[1] = 0; //cnt[1]‚Ì‰Šú‰»
+	cnt[2] = 0; //cnt[2]‚Ì‰Šú‰»
+	cnt[3] = 0; //cnt[3]‚Ì‰Šú‰»
+	cnt[4] = 0; //cnt[4]‚Ì‰Šú‰»
 	startTime = clock() / CLOCKS_PER_SEC; //startTime‚Ì’è‹`
 	endTime = clock() / CLOCKS_PER_SEC; //endTime‚Ì’è‹`
 	totalTime = endTime - startTime; //totalTime‚Ì’è‹`
@@ -63,35 +67,64 @@ Enemy::~Enemy()
 //void Enemy::Update(float _deltaTime)
 void Enemy::Update()
 {
-	////ƒ‰ƒ“ƒ_ƒ€‚È’l‚ğÀ•W‚Éİ’è‚·‚é
-	//mEnemyPosiY[0] = mEnemyPosiY[0] + GetRand(200) - GetRand(100);
-	//mEnemyPosiY[1] = mEnemyPosiY[1] + GetRand(300) - GetRand(200);
-	//mEnemyPosiY[2] = mEnemyPosiY[2] + GetRand(500) - GetRand(400);
-	//mEnemyPosiY[3] = mEnemyPosiY[3] + GetRand(200) - GetRand(200);
-	//mEnemyPosiY[4] = mEnemyPosiY[4] + GetRand(600) - GetRand(200);
+
+	if (cnt[0] + mEnemyPosiY[0] < -200) //“G‚P‚ª‰æ–ÊŠO‚És‚Á‚½‚ç
+	{
+		mEnemyPosiY[0] = 1500; //V‚½‚ÈÀ•W‚ğİ’è
+		//mEnemyPosiY[0] = mEnemyPosiY[0] + GetRand(200) - GetRand(100);
+		cnt[0] = 0; //cnt‚Ì‰Šú‰»
+		cnt[0] = cnt[0] - 5; //ˆÚ“®‘¬“x
+	}
+
+	if (cnt[1] + mEnemyPosiY[1] < -200) //“G2‚ª‰æ–ÊŠO‚És‚Á‚½‚ç
+	{
+		mEnemyPosiY[1] = 1800; //V‚½‚ÈÀ•W‚ğİ’è
+		//mEnemyPosiY[1] = mEnemyPosiY[1] + GetRand(300) - GetRand(200);
+		cnt[1] = 0; //cnt‚Ì‰Šú‰»
+		cnt[1] = cnt[1] - 5; //ˆÚ“®‘¬“x
+	}
+
+	if (cnt[2] + mEnemyPosiY[2] < -200) //“G3‚ª‰æ–ÊŠO‚És‚Á‚½‚ç
+	{
+		mEnemyPosiY[2] = 1500; //V‚½‚ÈÀ•W‚ğİ’è
+		//mEnemyPosiY[2] = mEnemyPosiY[2] + GetRand(500) - GetRand(400);
+		cnt[2] = 0; //cnt‚Ì‰Šú‰»
+		cnt[2] = cnt[2] - 5; //ˆÚ“®‘¬“x
+	}
+
+	if (cnt[3] + mEnemyPosiY[3] < -200) //“G4‚ª‰æ–ÊŠO‚És‚Á‚½‚ç
+	{
+		mEnemyPosiY[3] = 4000; //V‚½‚ÈÀ•W‚ğİ’è
+		//mEnemyPosiY[3] = mEnemyPosiY[3] + GetRand(200) - GetRand(200);
+		cnt[3] = 0; //cnt‚Ì‰Šú‰»
+		cnt[3] = cnt[3] - 5; //ˆÚ“®‘¬“x
+	}
+
+	if (cnt[4] + mEnemyPosiY[4] < -200) //“G5‚ª‰æ–ÊŠO‚És‚Á‚½‚ç
+	{
+		mEnemyPosiY[4] = 2000; //V‚½‚ÈÀ•W‚ğİ’è
+		//mEnemyPosiY[4] = mEnemyPosiY[4] + GetRand(600) - GetRand(200);
+		cnt[4] = 0; //cnt‚Ì‰Šú‰»
+		cnt[4] = cnt[4] - 5; //ˆÚ“®‘¬“x
+	}
+
 }
 
 void Enemy::Draw()
 {
-	DrawGraph(mEnemyPosiX[0], cnt + mEnemyPosiY[0], mEnemy1Image, TRUE); // À•W‚É“G1‚ğ•`‰æ
-	DrawGraph(mEnemyPosiX[1], cnt + mEnemyPosiY[1], mEnemy2Image, TRUE); // À•W‚É“G2‚ğ•`‰æ
-	DrawGraph(mEnemyPosiX[2], cnt + mEnemyPosiY[2], mEnemy3Image, TRUE); // À•W‚É“G3‚ğ•`‰æ
-	DrawGraph(mEnemyPosiX[3], cnt + mEnemyPosiY[3], mEnemy4Image, TRUE); // À•W‚É“G4‚ğ•`‰æ
-	DrawGraph(mEnemyPosiX[4], cnt + mEnemyPosiY[4], mEnemy5Image, TRUE); // À•W‚É“G5‚ğ•`‰æ
-	cnt = cnt - 5; //ˆÚ“®‘¬“x
+	DrawGraph(mEnemyPosiX[0], cnt[0] + mEnemyPosiY[0], mEnemy1Image, TRUE); // À•W‚É“G1‚ğ•`‰æ
+	DrawGraph(mEnemyPosiX[1], cnt[1] + mEnemyPosiY[1], mEnemy2Image, TRUE); // À•W‚É“G2‚ğ•`‰æ
+	DrawGraph(mEnemyPosiX[2], cnt[2] + mEnemyPosiY[2], mEnemy3Image, TRUE); // À•W‚É“G3‚ğ•`‰æ
+	DrawGraph(mEnemyPosiX[3], cnt[3] + mEnemyPosiY[3], mEnemy4Image, TRUE); // À•W‚É“G4‚ğ•`‰æ
+	DrawGraph(mEnemyPosiX[4], cnt[4] + mEnemyPosiY[4], mEnemy5Image, TRUE); // À•W‚É“G5‚ğ•`‰æ
 
-	//for (cnt = 1080; ProcessMessage() == 0 && cnt > -3500; cnt--) { //cnt‚ª1080‚æ‚è¬‚³‚¢‚Æ‚«ŒJ‚è•Ô‚·
-	//	//ClearDrawScreen(); // — ‰æ–Ê‚ğíœ
+	//ˆÚ“®‘¬“x
+	cnt[0] = cnt[0] - 5; //“G1
+	cnt[1] = cnt[1] - 5; //“G2
+	cnt[2] = cnt[2] - 5; //“G3
+	cnt[3] = cnt[3] - 5; //“G4
+	cnt[4] = cnt[4] - 5; //“G5
 
-	//	DrawGraph(mEnemyPosiX[0], cnt + mEnemyPosiY[0], mEnemy1Image, TRUE); // À•W‚É“G1‚ğ•`‰æ
-	//	DrawGraph(mEnemyPosiX[1], cnt + mEnemyPosiY[1], mEnemy2Image, TRUE); // À•W‚É“G2‚ğ•`‰æ
-	//	DrawGraph(mEnemyPosiX[2], cnt + mEnemyPosiY[2], mEnemy3Image, TRUE); // À•W‚É“G3‚ğ•`‰æ
-	//	DrawGraph(mEnemyPosiX[3], cnt + mEnemyPosiY[3], mEnemy4Image, TRUE); // À•W‚É“G4‚ğ•`‰æ
-	//	DrawGraph(mEnemyPosiX[4], cnt + mEnemyPosiY[4], mEnemy5Image, TRUE); // À•W‚É“G5‚ğ•`‰æ
-	//	cnt = cnt - 5; //ˆÚ“®‘¬“x
-
-	//	//ScreenFlip();// •`‰æŒ‹‰Ê‚ğ•\¦
-	//}
 }
 
 //‰æ‘œ‚Éx,y‚ğƒZƒbƒg‚·‚é
