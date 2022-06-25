@@ -53,5 +53,4 @@ private:
 	const int LEFTPOSX = 62;
 	const int MIDDLEPOSX = 275;
 	const int RIGHTPOSX = 457;
-
 };

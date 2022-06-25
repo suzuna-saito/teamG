@@ -7,7 +7,6 @@
 
 Player::Player()
 {
-
 	//ƒvƒŒƒCƒ„[‚Ì‰ŠúˆÊ’u‚Ì‘ã“ü
 	mPlayerX = FIRSTPOSX;
 	mPlayerY = FIRSTPOSY;
@@ -105,12 +104,12 @@ void Player::PlayerSpeed()
 
 void Player::PlayerLandingPreparation()
 {
-	Background * mBackground = new Background();         // ”wŒi
-	if (Background GetTotalLength <= 50&&
-		Background * GetTotalLength() > 0)
-	{
+	//Background * mBackground = new Background();         // ”wŒi
+	//if (Background GetTotalLength <= 50&&
+	//	Background * GetTotalLength() > 0)
+	//{
 
-	}
+	//}
 }
 
 void Player::PlayerLanding()
