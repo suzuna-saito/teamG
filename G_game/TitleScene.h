@@ -43,7 +43,16 @@ private:
 		eScore,   // スコア
 	};
 
+	/// <summary>
+	/// CursorPosに合わせてボタンの描画
+	/// </summary>
+	void DrawButton();
+
 	// 定数
+	const int MCollisionLeftX;   // ボタンの左X座標　調整値（当たり判定）
+	const int MCollisionRightX;  // ボタンの右X座標　調整値（当たり判定）
+	const int MCollisionLeftY;   // ボタンの左Y座標　調整値（当たり判定）
+	const int MCollisionRightY;  // ボタンの右Y座標　調整値（当たり判定）
 	const int MMinAlpha;   // 最小透明度
 	const int MMaxAlpha;   // 最大透明度
 
@@ -55,7 +64,7 @@ private:
 	int mMousePosY;          // マウスのポジション
 	CursorPos mNowCursorPos; // 現在カーソルが合わせているポジション
 
-	int mAlpha;      // 透明度
-	int mChangeSpeed;// 透明度の変化値
+	int mAlpha;              // 透明度
+	int mChangeSpeed;        // 透明度の変化値
 };
 
