@@ -25,13 +25,35 @@ public:
 	void Draw()override;
 
 private:
+	// 画像のタグ（種類）
+	enum Image :unsigned char
+	{
+		eBack,    // 背景
+		eChar,    // 文字
+		eSmoke,   // 煙
+		eButton,  // ボタン
+		eButton2, // 上のボタンとは別のボタン
+	};
+
+	// カーソルが合わせている位置
+	enum class CursorPos :unsigned char
+	{
+		eNone,    // どこにも合っていない
+		eStart,   // スタート
+		eScore,   // スコア
+	};
+
 	// 定数
 	const int MMinAlpha;   // 最小透明度
 	const int MMaxAlpha;   // 最大透明度
 
 	// 変数
-	std::vector<int> mOtherImage;  // 画像
-	std::vector<VECTOR> mPos;      // 画像のポジション
+	std::vector<int> mImages;  // 画像
+	std::vector<VECTOR> mPos;  // 画像のポジション
+	
+	int mMousePosX;          // マウスのポジション
+	int mMousePosY;          // マウスのポジション
+	CursorPos mNowCursorPos; // 現在カーソルが合わせているポジション
 
 	int mAlpha;      // 透明度
 	int mChangeSpeed;// 透明度の変化値
