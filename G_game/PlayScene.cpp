@@ -39,6 +39,7 @@ SceneBase* PlayScene::Update(float _deltaTime)
 	// プレイヤーの更新
 	mPlayer->BesidePlayerMove();
 	mPlayer->PlayerSpeed();
+	mPlayer->PlayerLandingPreparation(_deltaTime);
 	mPlayer->PlayerLanding();
 
 	// シーン遷移条件を満たしていなかったら今のポインタを返す

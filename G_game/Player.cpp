@@ -2,10 +2,17 @@
 #include "Dxlib.h"
 #include "PlayScene.h"
 #include "Player.h"
-#include "BackGround.h"
+#include "Background.h"
 
 
 Player::Player()
+	:mMouseX(0)
+	,mMouseY(0)
+	,mClickLog(0)
+	,mClickTmpLog(0)
+	,mBackground(0)
+	, mLandingSpeed(0)
+	, mLandDis(0)
 {
 	//プレイヤーの初期位置の代入
 	mPlayerX = FIRSTPOSX;
@@ -14,7 +21,7 @@ Player::Player()
 	pImage = LoadGraph("data/assets/Player.png");
 	//マウスクリックの初期化
 	mMouseClick = FALSE;
-	LongPress = FALSE;
+
 }
 
 Player::~Player()
@@ -35,10 +42,9 @@ void Player::PlayerDraw()
 	// 黒の値を取得
 	BoxCr = GetColor(0, 0, 0);
 	// 座標文字列を描く
-	DrawFormatString(0, 0, StringCr, "座標Ｘ %d　　座標Ｙ %d", mMouseX, mMouseY);
+	DrawFormatString(0, 0, StringCr, "着陸直前の速度:%d", mLandingSpeed);
 	//長押し状態の確認
-	DrawFormatString(300, 0, StringCr, "%d　　%d", ClickLog, ClickTmpLog);
-	DrawFormatString(500, 0, StringCr, "%d", LongPress);
+	DrawFormatString(300, 0, StringCr, "%d　　%d", mClickLog, mClickTmpLog);
 
 
 	DrawGraph(mPlayerX, mPlayerY, pImage, TRUE);
@@ -69,13 +75,13 @@ int Player::MouseLeftClick()
 	//左クリックされたら
 	if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
 	{
-		ClickTmpLog = 1;
+		mClickTmpLog = 1;
 		return TRUE;
 	}
 	//左クリックされなかったら
 	else
 	{
-		ClickTmpLog = 0;
+		mClickTmpLog = 0;
 		return FALSE;
 	}
 }
@@ -83,7 +89,7 @@ int Player::MouseLeftClick()
 int  Player::MouseLongPress()
 {
 	//前フレームと比較する
-	if (ClickTmpLog == ClickLog)
+	if (mClickTmpLog == mClickLog)
 	{
 		return TRUE;
 	}
@@ -99,24 +105,24 @@ void Player::PlayerSpeed()
 	{
 		Background::mMoveSpeed;
 	}
-	ClickLog = ClickTmpLog;
+	mClickLog = mClickTmpLog;
 }
 
-void Player::PlayerLandingPreparation()
+void Player::PlayerLandingPreparation(float _deltaTime)
 {
-	//Background * mBackground = new Background();         // 背景
-	//if (Background GetTotalLength <= 50&&
-	//	Background * GetTotalLength() > 0)
-	//{
+	mLandDis = mBackground->GetTotalLength();
 
-	//}
+	if (mLandDis == BEFORELANDING)
+	{
+		mLandingSpeed = Background::mMoveSpeed * _deltaTime;
+	}
 }
 
 void Player::PlayerLanding()
 {
 	if (Background::mMoveSpeed == 0)
 	{
-		mPlayerY += 10;
+		mPlayerY += (int)mLandingSpeed;
 	}
 }
 

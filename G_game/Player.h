@@ -30,7 +30,10 @@ public:
 	//左クリック長押し処理
 	void PlayerSpeed();
 
-	void PlayerLandingPreparation();
+	//着地の速度を背景速度から取ってくる
+	void PlayerLandingPreparation(float _deltaTime);
+
+	//着地
 	void PlayerLanding();
 
 private:
@@ -39,10 +42,12 @@ private:
 	int pImage;				//プレイヤーの画像
 	int mPlayerX;			//プレイヤーのX座標
 	int mPlayerY;			//プレイヤーのY座標
+	int mLandDis;			//地面までの距離
+	float mLandingSpeed;		//着地速度
 	bool mMouseClick;		//マウスで左クリックされたか
-	bool ClickLog;
-	bool ClickTmpLog;
-	bool LongPress;
+	bool mClickLog;			//マウスが前フレームで押されているか
+	bool mClickTmpLog;		//マウスが今フレームで押されているか
+
 	class Background* mBackground;   // 背景クラス
 
 	//プレイヤーの初期位置
@@ -53,4 +58,6 @@ private:
 	const int LEFTPOSX = 62;
 	const int MIDDLEPOSX = 275;
 	const int RIGHTPOSX = 457;
+
+	const int BEFORELANDING = 1;//着陸1m前
 };
