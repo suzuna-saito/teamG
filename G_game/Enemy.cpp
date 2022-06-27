@@ -70,40 +70,40 @@ void Enemy::Update()
 
 	if (cnt[0] + mEnemyPosiY[0] < -200) //敵１が画面外に行ったら
 	{
-		mEnemyPosiY[0] = 1500; //新たな座標を設定
-		//mEnemyPosiY[0] = mEnemyPosiY[0] + GetRand(200) - GetRand(100);
+		//mEnemyPosiY[0] = 1500; //新たな座標を設定
+		mEnemyPosiY[0] = mEnemyPosiY[0] + GetRand(200) - GetRand(100);
 		cnt[0] = 0; //cntの初期化
 		cnt[0] = cnt[0] - 5; //移動速度
 	}
 
 	if (cnt[1] + mEnemyPosiY[1] < -200) //敵2が画面外に行ったら
 	{
-		mEnemyPosiY[1] = 1800; //新たな座標を設定
-		//mEnemyPosiY[1] = mEnemyPosiY[1] + GetRand(300) - GetRand(200);
+		//mEnemyPosiY[1] = 1800; //新たな座標を設定
+		mEnemyPosiY[1] = mEnemyPosiY[1] + GetRand(300) - GetRand(200); //新たな座標を設定
 		cnt[1] = 0; //cntの初期化
 		cnt[1] = cnt[1] - 5; //移動速度
 	}
 
 	if (cnt[2] + mEnemyPosiY[2] < -200) //敵3が画面外に行ったら
 	{
-		mEnemyPosiY[2] = 1500; //新たな座標を設定
-		//mEnemyPosiY[2] = mEnemyPosiY[2] + GetRand(500) - GetRand(400);
+		//mEnemyPosiY[2] = 1500; //新たな座標を設定
+		mEnemyPosiY[2] = mEnemyPosiY[2] + GetRand(500) - GetRand(400); //新たな座標を設定
 		cnt[2] = 0; //cntの初期化
 		cnt[2] = cnt[2] - 5; //移動速度
 	}
 
 	if (cnt[3] + mEnemyPosiY[3] < -200) //敵4が画面外に行ったら
 	{
-		mEnemyPosiY[3] = 4000; //新たな座標を設定
-		//mEnemyPosiY[3] = mEnemyPosiY[3] + GetRand(200) - GetRand(200);
+		//mEnemyPosiY[3] = 4000; //新たな座標を設定
+		mEnemyPosiY[3] = mEnemyPosiY[3] + GetRand(200) - GetRand(200); //新たな座標を設定
 		cnt[3] = 0; //cntの初期化
 		cnt[3] = cnt[3] - 5; //移動速度
 	}
 
 	if (cnt[4] + mEnemyPosiY[4] < -200) //敵5が画面外に行ったら
 	{
-		mEnemyPosiY[4] = 2000; //新たな座標を設定
-		//mEnemyPosiY[4] = mEnemyPosiY[4] + GetRand(600) - GetRand(200);
+		//mEnemyPosiY[4] = 2000; //新たな座標を設定
+		mEnemyPosiY[4] = mEnemyPosiY[4] + GetRand(600) - GetRand(200); //新たな座標を設定
 		cnt[4] = 0; //cntの初期化
 		cnt[4] = cnt[4] - 5; //移動速度
 	}
