@@ -6,11 +6,29 @@
 
 LoadScene::LoadScene(Scene _nextScene)
 	: SceneBase(SceneBase::Scene::eLoad)
-	, MSecond(3000)
+	, MSecond(5000)
+	, MHalfSecond(500)
 	, mStartTime(GetNowCount())
+	, MInitWidthSize(220)
+	, MDrawExpansion(35)
+	, MMaxWidthSize(MInitWidthSize + MDrawExpansion * 3)
+	, MDrawHeight(190)
+	, MRightPosX(150)
+	, MRightPosY(250)
+	, MMaxKoyakeSizeY(20)
+	, MMinKoyakeSizeY(0)
+	, mDrawWidth(MInitWidthSize)
+	, mSize(MMinKoyakeSizeY)
+	, mChangeSize(1)
+	, mWeitTime(500)
 {
 	// ロード画像の読み込み(仮)
-	mImage = LoadGraph("data/assets/ResultScene/Result.png");
+	mImages.emplace_back(LoadGraph("data/assets/LoadScene/Load.png"));      // 文字
+	mImages.emplace_back(LoadGraph("data/assets/LoadScene/Koyake.png"));    // キャラクター
+
+	// ポジションの設定
+	mPos.emplace_back(VGet(280.0f, 850.0f, 0.0f)); // 文字
+	mPos.emplace_back(VGet(450.0f, 550.0f, 0.0f)); // キャラクター
 
 	// 次のシーンのタイプ
 	mNextSceneType = _nextScene;
@@ -18,7 +36,11 @@ LoadScene::LoadScene(Scene _nextScene)
 
 LoadScene::~LoadScene()
 {
-	DeleteGraph(mImage);
+	// ベクター型に保存している画像を全て消す
+	for (auto image : mImages)
+	{
+		DeleteGraph(image);
+	}
 }
 
 SceneBase* LoadScene::Update(float _deltaTime)
@@ -41,12 +63,44 @@ SceneBase* LoadScene::Update(float _deltaTime)
 		}
 	}
 
+	// 描画する矩形サイズの変更(loading)
+	if (mDrawWidth <= MMaxWidthSize)  // 描画する矩形サイズが最大までいってなかったら
+	{
+		if (GetNowCount() - mStartTime >= mWeitTime) // 0.5秒たったら
+		{
+			mDrawWidth += MDrawExpansion;  // 描画サイズを大きくする
+
+			mWeitTime += MHalfSecond;      // 更新を待つ時間を0.5秒増やす 
+		}
+	}
+	else
+	{
+		mDrawWidth = MInitWidthSize;   // 初期サイズに戻す
+	}
+
+	// キャラクターのサイズを変える(koyake)
+	if (mSize > MMaxKoyakeSizeY ||    // 今のサイズが最大より上になったら または
+		mSize < MMinKoyakeSizeY)      // 今のサイズが最小未満になったら
+	{
+		mChangeSize *= -1;            // サイズ変化値の符号を変える
+	}
+
+	// サイズを変える
+	mSize += mChangeSize;
+	
 	// シーン遷移条件を満たしていなかったら今のポインタを返す
 	return this;
 }
 
 void LoadScene::Draw()
 {
-	// ロードの描画
-	DrawGraph(0, 0, mImage, TRUE);
+	// 指定矩形部分のみ描画（loading）
+	DrawRectGraph((int)mPos[loadImage::eChar].x, (int)mPos[loadImage::eChar].y,0, 0,
+		mDrawWidth, MDrawHeight,mImages[loadImage::eChar], TRUE, FALSE);
+	// 拡大縮小描画(koyake)
+	DrawExtendGraph(
+		(int)mPos[loadImage::eKoyake].x, (int)mPos[loadImage::eKoyake].y - mSize,                    // 左上
+		(int)mPos[loadImage::eKoyake].x + MRightPosX, (int)mPos[loadImage::eKoyake].y + MRightPosY,  // 右下
+		mImages[loadImage::eKoyake], TRUE);
+
 }

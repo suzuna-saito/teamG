@@ -27,7 +27,7 @@ public:
 
 private:
 	// 画像のタグ（種類）
-	enum Image :unsigned char
+	enum titleImage :unsigned char
 	{
 		eBack,    // 背景
 		eChar,    // 文字

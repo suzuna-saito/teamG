@@ -94,15 +94,15 @@ void TitleScene::Draw()
 	// タイトルの描画
 	// ブレンドモードをノーブレンドにする
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
-	DrawGraph((int)mPos[Image::eBack].x, (int)mPos[Image::eBack].y, mImages[Image::eBack], TRUE);         // 背景
+	DrawGraph((int)mPos[titleImage::eBack].x, (int)mPos[titleImage::eBack].y, mImages[titleImage::eBack], TRUE);         // 背景
 
 	DrawButton();                                                                                         // ボタン
 
-	DrawGraph((int)mPos[Image::eChar].x, (int)mPos[Image::eChar].y, mImages[Image::eChar], TRUE);         // 文字
+	DrawGraph((int)mPos[titleImage::eChar].x, (int)mPos[titleImage::eChar].y, mImages[titleImage::eChar], TRUE);         // 文字
 
 	// ブレンドモードをαブレンドにする（透明度を変える）
 	SetDrawBlendMode(DX_BLENDMODE_ALPHA,mAlpha);
-	DrawGraph((int)mPos[Image::eSmoke].x, (int)mPos[Image::eSmoke].y, mImages[Image::eSmoke], TRUE);      // 煙
+	DrawGraph((int)mPos[titleImage::eSmoke].x, (int)mPos[titleImage::eSmoke].y, mImages[titleImage::eSmoke], TRUE);      // 煙
 }
 
 void TitleScene::DrawButton()
@@ -110,18 +110,18 @@ void TitleScene::DrawButton()
 	// マウスカーソルがStartにあっていたら
 	if (mNowCursorPos == CursorPos::eStart)
 	{
-		DrawGraph((int)mPos[Image::eButton].x, (int)mPos[Image::eButton].y, mImages[Image::eButton2], TRUE);   // startボタン(明るく描画)
-		DrawGraph((int)mPos[Image::eButton2].x, (int)mPos[Image::eButton2].y, mImages[Image::eButton], TRUE);  // scoreボタン
+		DrawGraph((int)mPos[titleImage::eButton].x, (int)mPos[titleImage::eButton].y, mImages[titleImage::eButton2], TRUE);   // startボタン(明るく描画)
+		DrawGraph((int)mPos[titleImage::eButton2].x, (int)mPos[titleImage::eButton2].y, mImages[titleImage::eButton], TRUE);  // scoreボタン
 	}
 	// マウスカーソルがScoreにあっていたら
 	else if (mNowCursorPos == CursorPos::eScore)
 	{
-		DrawGraph((int)mPos[Image::eButton].x, (int)mPos[Image::eButton].y, mImages[Image::eButton], TRUE);   // startボタン
-		DrawGraph((int)mPos[Image::eButton2].x, (int)mPos[Image::eButton2].y, mImages[Image::eButton2], TRUE);  // scoreボタン(明るく描画)
+		DrawGraph((int)mPos[titleImage::eButton].x, (int)mPos[titleImage::eButton].y, mImages[titleImage::eButton], TRUE);     // startボタン
+		DrawGraph((int)mPos[titleImage::eButton2].x, (int)mPos[titleImage::eButton2].y, mImages[titleImage::eButton2], TRUE);  // scoreボタン(明るく描画)
 	}
 	else
 	{
-		DrawGraph((int)mPos[Image::eButton].x, (int)mPos[Image::eButton].y, mImages[Image::eButton], TRUE);    // startボタン
-		DrawGraph((int)mPos[Image::eButton2].x, (int)mPos[Image::eButton2].y, mImages[Image::eButton], TRUE);  // scoreボタン
+		DrawGraph((int)mPos[titleImage::eButton].x, (int)mPos[titleImage::eButton].y, mImages[titleImage::eButton], TRUE);    // startボタン
+		DrawGraph((int)mPos[titleImage::eButton2].x, (int)mPos[titleImage::eButton2].y, mImages[titleImage::eButton], TRUE);  // scoreボタン
 	}
 }
